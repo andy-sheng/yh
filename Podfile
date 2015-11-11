@@ -1,0 +1,2 @@
+pod 'CYLTabBarController'
+pod 'AFNetworking'
