@@ -21,13 +21,16 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - CYLTabBarController (1.0.2)
+  - MJRefresh (3.0.2)
 
 DEPENDENCIES:
   - AFNetworking
   - CYLTabBarController
+  - MJRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   CYLTabBarController: 234a83de95403fe7a4f94e0413facb56ebce46fd
+  MJRefresh: 85377dc8c70395cf329e102a5c55505ef387c2e1
 
 COCOAPODS: 0.38.2

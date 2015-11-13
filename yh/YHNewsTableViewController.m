@@ -13,16 +13,26 @@
 #import "YHNews.h"
 #import "YHNewsCellActionProtocol.h"
 #import "YHImageDisplayerController.h"
-
+#import <MJRefresh.h>
 
 #define COVER_ROW 0
 
 
-@interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, YHNewsCellActionProtocol>
+@interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,YHNewsCellActionProtocol>
 
 @end
 
 @implementation YHNewsTableViewController
+
+- (void)refresh {
+    NSLog(@"refreshing...");
+    [self.tableView.mj_header endRefreshing];
+}
+
+-(void)more {
+    [self.tableView.mj_footer endRefreshing];
+    NSLog(@"more");
+}
 
 - (void)nameTouched {
     
@@ -48,9 +58,12 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    //上拉刷新
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(more)];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCell" bundle:nil] forCellReuseIdentifier:[YHNewsCell identifier]];
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCoverCell" bundle:nil] forCellReuseIdentifier:[YHNewsCoverCell identifier]];
-    
     
 }
 
@@ -58,6 +71,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 
@@ -104,19 +118,10 @@
      
         return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
     }
- 
-     
-//   testCell *cell = [[NSBundle mainBundle] loadNibNamed:@"test" owner:nil options:nil][0];
-//    
-//    [cell setNeedsUpdateConstraints];
-//    [cell updateConstraintsIfNeeded];
-//    cell.bounds = CGRectMake(0.0f,0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(cell.bounds));
-//    [cell setNeedsLayout];
-//    [cell layoutIfNeeded];
-//    
-//    
-//    NSLog(@"height");
-//    return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //NSLog(@"%f", self.tableView.contentInset.top);
 }
 
 /*
