@@ -7,11 +7,14 @@
 //
 
 #import "YHNewsCell.h"
-
+#import "YHConfig.h"
+#import <UIImageView+AFNetworking.h>
 #define IDENTTIFIER @"newsCell"
 @interface YHNewsCell () <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *avatar;
+@property (weak, nonatomic) YHNews *news;
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *car;
 @property (weak, nonatomic) IBOutlet UILabel *time;
@@ -30,9 +33,6 @@
 
 @end
 @implementation YHNewsCell
-- (IBAction)avatarTouched:(id)sender {
-    [_delegate nameTouched];
-}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 9;
@@ -46,8 +46,22 @@
     return 1;
 }
 
-- (void)setNews:(YHNews *)news {
-    //self.content.text = @"定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！定期保养才是真理！";
+- (void)initWithNews:(YHNews *)news {
+    
+    self.news = news;
+    [self.avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", SERVER_ADDR, self.news.avatar]]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat       = @"HH:mm";
+    
+    
+    self.name.text          = self.news.name;
+    self.car.text           = self.news.car;
+    self.time.text          = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.news.time]];
+    self.content.text       = self.news.content;
+    self.location.text      = self.news.location;
+    self.likesCount.text    = [NSString stringWithFormat:@"赞:%ld", self.news.likesCount];
+    self.commentsCount.text = [NSString stringWithFormat:@"评论:%ld", self.news.commentsCount];
+    
 }
 
 + (NSString *)identifier {
@@ -55,12 +69,16 @@
 }
 
 - (void)awakeFromNib {
+    
     //
     _car.layer.cornerRadius = 6;
     _car.layer.masksToBounds = YES;
     
     
     _content.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - _content.frame.origin.x - 8;
+    
+    //set avatar touched action
+    [_avatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nameTouched:)]];
     
     //set name label touched action
     [_name addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nameTouched:)]];

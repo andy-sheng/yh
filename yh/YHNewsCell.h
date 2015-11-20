@@ -14,5 +14,5 @@
 @property (nonatomic, weak) id<YHNewsCellActionProtocol> delegate;
 
 + (NSString *)identifier;
-- (void)setNews:(YHNews *)news;
+- (void)initWithNews:(YHNews *)news;
 @end

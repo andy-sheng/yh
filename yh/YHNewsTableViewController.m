@@ -13,12 +13,17 @@
 #import "YHNews.h"
 #import "YHNewsCellActionProtocol.h"
 #import "YHImageDisplayerController.h"
+#import "YHConfig.h"
+#import "YHNewsList.h"
 #import <MJRefresh.h>
+#import <AFNetworking.h>
 
 #define COVER_ROW 0
 
 
 @interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,YHNewsCellActionProtocol>
+
+@property(nonatomic, strong) YHNewsList *newsList;
 
 @end
 
@@ -26,7 +31,16 @@
 
 - (void)refresh {
     NSLog(@"refreshing...");
-    [self.tableView.mj_header endRefreshing];
+
+    [self.newsList refreshWithSuccess:^{
+        NSLog(@"end refreshing");
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    } fail:^{
+        
+    }];
+    
+
 }
 
 -(void)more {
@@ -51,6 +65,7 @@
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
 
     //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -65,7 +80,18 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCell" bundle:nil] forCellReuseIdentifier:[YHNewsCell identifier]];
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCoverCell" bundle:nil] forCellReuseIdentifier:[YHNewsCoverCell identifier]];
     
+    //data
+    self.newsList = [YHNewsList newsList];
+    
+    
+    
 }
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -80,42 +106,43 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    NSLog(@"%ld", [self.newsList count] + 1);
+    return [self.newsList count] + 1;
 }
 
 
-
+/*cell*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (indexPath.row == COVER_ROW) {
         YHNewsCoverCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCoverCell identifier]];
         cell.delegate = self;
         [cell setUser:[YHUser user]];
+        
         return cell;
     } else {
         YHNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCell identifier]];
         cell.delegate = self;
-        [cell setNews:[YHNews news]];
+        [cell initWithNews:[self.newsList newsAtIndex:indexPath.row - 1]];
+        
         return cell;
     }
 }
 
-#warning height
+/*cell height*/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == COVER_ROW) {
         return self.tableView.bounds.size.width / 600 * 300;
     } else {
         YHNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCell identifier]];
-        [cell setNews:[YHNews news]];
-        
+        [cell initWithNews:[self.newsList newsAtIndex:indexPath.row - 1]];
         [cell setNeedsUpdateConstraints];
         [cell updateConstraintsIfNeeded];
         cell.bounds = CGRectMake(0.0f,0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(cell.bounds));
         [cell setNeedsLayout];
         [cell layoutIfNeeded];
-        
-     
+    
         return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + 1;
     }
 }
