@@ -44,8 +44,13 @@
 }
 
 -(void)more {
-    [self.tableView.mj_footer endRefreshing];
-    NSLog(@"more");
+    [self.newsList moreWithSuccess:^{
+        NSLog(@"more");
+        [self.tableView.mj_footer endRefreshing];
+        [self.tableView reloadData];
+    } fail:^{
+        
+    }];
 }
 
 - (void)nameTouched {
@@ -75,6 +80,7 @@
     
     //上拉刷新
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refresh)];
+    //下拉加载
     self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(more)];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCell" bundle:nil] forCellReuseIdentifier:[YHNewsCell identifier]];

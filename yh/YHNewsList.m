@@ -12,6 +12,7 @@
 
 @interface YHNewsList()
 
+@property(atomic, assign) NSInteger curPage;
 @property(atomic, strong) NSMutableArray *list;
 @property(atomic) NSInteger listCount;
 
@@ -20,7 +21,10 @@
 @implementation YHNewsList
 
 + (YHNewsList *) newsList {
-    return [[YHNewsList alloc] init];
+    YHNewsList *newsList = [[YHNewsList alloc] init];
+    newsList.list = [[NSMutableArray alloc] init];
+    newsList.curPage = 1;
+    return newsList;
 }
 
 - (NSInteger)count{
@@ -33,16 +37,16 @@
 
 - (void) refreshWithSuccess:(void (^)(void))successBlock
                        fail:(void (^)(void))failBlock {
+    
+    self.curPage = 1;
+    
     //data
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@news.json", SERVER_ADDR]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@news-1.json", SERVER_ADDR]];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:url.absoluteString, SERVER_ADDR] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         self.listCount = [(NSNumber *)[responseObject valueForKey:@"count"] integerValue];
-        NSLog(@"self.listCount:%@", responseObject);
-        NSLog(@"listcount:%ld", self.listCount);
-        NSArray *tmp = [responseObject valueForKey:@"news"];
-        self.list = [[NSMutableArray alloc] init];
         
+        NSArray *tmp = [responseObject valueForKey:@"news"];
         for (NSInteger i = 0; i < tmp.count; i++) {
             
             YHNews *news = [YHNews newsWithDic:tmp[i]];
@@ -56,8 +60,28 @@
     }];
 }
 
-- (void) more {
-    
+- (void) moreWithSuccess:(void (^)(void))successBlock
+                    fail:(void (^)(void))failBlock {
+    self.curPage++;
+    //data
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@news-%ld.json", SERVER_ADDR, self.curPage]];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[NSString stringWithFormat:url.absoluteString, SERVER_ADDR] parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        self.listCount += [(NSNumber *)[responseObject valueForKey:@"count"] integerValue];
+        NSArray *tmp = [responseObject valueForKey:@"news"];
+        
+        
+        for (NSInteger i = 0; i < tmp.count; i++) {
+            
+            YHNews *news = [YHNews newsWithDic:tmp[i]];
+            [self.list addObject:news];
+            
+        }
+        successBlock();
+        
+    } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        failBlock();
+    }];
 }
 
 @end
