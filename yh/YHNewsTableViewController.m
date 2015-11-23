@@ -49,7 +49,7 @@
         [self.tableView.mj_footer endRefreshing];
         [self.tableView reloadData];
     } fail:^{
-        
+        [self.tableView.mj_footer endRefreshing];
     }];
 }
 
@@ -58,9 +58,10 @@
     [_mainViewDelegate displayTimeLine];
 }
 
-- (void)imageTouched:(int)tag {
+- (void)imageTouchedWithNid:(NSInteger)nid imageId:(NSInteger)imageId {
     
-    [_mainViewDelegate displayImages];
+    [_mainViewDelegate displayImagesWithUrlstrs:[self.newsList newsWithNid:nid].images imageId:imageId];
+    
 }
 
 -(void)coverTouched {

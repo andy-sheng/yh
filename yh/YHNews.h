@@ -10,6 +10,7 @@
 
 @interface YHNews : NSObject
 
+@property (nonatomic, assign) NSInteger nid;
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *car;

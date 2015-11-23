@@ -10,4 +10,7 @@
 
 @interface YHImageDisplayerController : UIViewController
 
++ (YHImageDisplayerController *)displayerWithUrls: (NSArray *) urls imageId:(NSInteger) imageId;
++ (YHImageDisplayerController *)displayerWithUrlstrs: (NSArray *) urlstrs imageId:(NSInteger) imageId;
+
 @end

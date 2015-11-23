@@ -35,6 +35,15 @@
     return self.list[index];
 }
 
+- (YHNews *) newsWithNid:(NSInteger)nid {
+    for (YHNews *news in self.list) {
+        if (news.nid == nid) {
+            return news;
+        }
+    }
+    return nil;
+}
+
 - (void) refreshWithSuccess:(void (^)(void))successBlock
                        fail:(void (^)(void))failBlock {
     

@@ -7,52 +7,75 @@
 //
 
 #import "YHImageDisplayerController.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface YHImageDisplayerController()<UIScrollViewDelegate>
 
-@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIScrollView  *scrollView;
 @property (strong, nonatomic) UIPageControl *pageController;
-@property (nonatomic) int currentPage;
+@property (strong, nonatomic) NSArray       *urls;
+@property (assign, nonatomic) NSInteger      currentPage;
+@property (assign, nonatomic) NSInteger      imageCount;
+
 @end
 @implementation YHImageDisplayerController
+
+
+
++ (YHImageDisplayerController *)displayerWithUrls:(NSArray *)urls imageId:(NSInteger)imageId{
+    
+    YHImageDisplayerController *controller = [[YHImageDisplayerController alloc] init];
+    controller.urls        = urls;
+    controller.imageCount  = [urls count];
+    controller.currentPage = imageId;
+    return controller;
+    
+}
+
++ (YHImageDisplayerController *)displayerWithUrlstrs:(NSArray *)urlstrs imageId:(NSInteger)imageId{
+    
+    NSMutableArray *urls = [[NSMutableArray alloc] init];
+    for (NSString *urlStr in urlstrs) {
+        [urls addObject:[NSURL URLWithString:urlStr]];
+    }
+    return [YHImageDisplayerController displayerWithUrls:urls imageId:imageId];
+}
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-#warning test data
-    NSArray *images = @[@"cover.png", @"avatar.png"];
     
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss)]];
     
-    _currentPage = 0;
-    int imageCount = [images count];
-    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
-    _scrollView.contentSize = CGSizeMake(imageCount * screenSize.width, screenSize.height);
     
-    for (int i = 0; i < imageCount; i++) {
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+    self.scrollView.contentSize = CGSizeMake(self.imageCount * screenSize.width, screenSize.height);
+    
+    for (int i = 0; i < self.imageCount; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(screenSize.width * i, 0, screenSize.width, screenSize.height)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [imageView setImage:[UIImage imageNamed:images[i]]];
-        [_scrollView addSubview:imageView];
+        [imageView setImageWithURL:self.urls[i]];
+        [self.scrollView addSubview:imageView];
     }
     
-    _scrollView.maximumZoomScale = 2;
-    _scrollView.minimumZoomScale = 0.2;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.delegate = self;
-    _scrollView.pagingEnabled = YES;
+    self.scrollView.maximumZoomScale               = 2;
+    self.scrollView.minimumZoomScale               = 0.2;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator   = NO;
+    self.scrollView.delegate                       = self;
+    self.scrollView.pagingEnabled                  = YES;
+    self.scrollView.contentOffset                  = CGPointMake(screenSize.width * self.currentPage, 0);
     
-    _pageController = [[UIPageControl alloc] init];
-    _pageController.center = CGPointMake(screenSize.width / 2, screenSize.height - 20);
-    _pageController.numberOfPages = imageCount;
-    _pageController.currentPage = _currentPage;
+    self.pageController               = [[UIPageControl alloc] init];
+    self.pageController.center        = CGPointMake(screenSize.width / 2, screenSize.height - 20);
+    self.pageController.numberOfPages = self.imageCount;
+    self.pageController.currentPage   = self.currentPage;
     
     
-    [self.view addSubview:_scrollView];
-    [self.view addSubview:_pageController];
+    [self.view addSubview:self.scrollView];
+    [self.view addSubview:self.pageController];
     
 }
 
@@ -70,13 +93,13 @@
 -(void) scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
-    _pageController.currentPage = _scrollView.contentOffset.x / screenSize.width;
+    self.pageController.currentPage = self.scrollView.contentOffset.x / screenSize.width;
     
 }
 
 -(UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     
-    return _scrollView.subviews[_currentPage];
+    return self.scrollView.subviews[self.currentPage];
     
 }
 

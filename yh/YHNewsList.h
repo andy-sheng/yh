@@ -15,6 +15,7 @@
 - (void) refreshWithSuccess:(void(^)(void))successBlock fail:(void(^)(void))failBlock;
 - (void) moreWithSuccess:(void (^)(void))successBlock fail:(void (^)(void))failBlock;
 - (YHNews *) newsAtIndex:(NSInteger) index;
+- (YHNews *) newsWithNid:(NSInteger) nid;
 - (NSInteger)count;
 
 @end

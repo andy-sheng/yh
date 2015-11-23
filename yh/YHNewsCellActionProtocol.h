@@ -12,7 +12,7 @@
 
 @optional
 -(void)coverTouched;
--(void)imageTouched:(int)tag;
+-(void)imageTouchedWithNid:(NSInteger) nid imageId:(NSInteger)imageId;
 -(void)nameTouched;
 
 @end

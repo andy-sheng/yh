@@ -13,7 +13,7 @@
 @protocol YHMainViewDelegate <NSObject>
 @required
 -(void)changeCover;
--(void)displayImages;
+-(void)displayImagesWithUrlstrs:(NSArray *)urlstrs imageId:(NSInteger)imageId;
 -(void)displayTimeLine;
 @end
 

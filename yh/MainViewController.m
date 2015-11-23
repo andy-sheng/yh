@@ -30,10 +30,9 @@
 
 @implementation MainViewController
 
--(void)displayImages {
+-(void)displayImagesWithUrlstrs:(NSArray *)urlstrs imageId:(NSInteger)imageId{
     
-    //[self presentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"imageDisplayer"] animated:YES completion:nil];
-    [self presentViewController:[[YHImageDisplayerController alloc] init] animated:YES completion:nil];
+    [self presentViewController:[YHImageDisplayerController displayerWithUrlstrs:urlstrs imageId:imageId] animated:YES completion:nil];
     
 }
 
@@ -50,7 +49,7 @@
     }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //[self performSegueWithIdentifier:@"changeCover" sender:self];
+
     }]];
     
     [self presentViewController:alert animated:YES completion:nil];
