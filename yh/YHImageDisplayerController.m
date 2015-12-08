@@ -54,14 +54,20 @@
     self.scrollView.contentSize = CGSizeMake(self.imageCount * screenSize.width, screenSize.height);
     
     for (int i = 0; i < self.imageCount; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(screenSize.width * i, 0, screenSize.width, screenSize.height)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         [imageView setImageWithURL:self.urls[i]];
-        [self.scrollView addSubview:imageView];
+        
+        UIScrollView *tmp = [[UIScrollView alloc] initWithFrame:CGRectMake(screenSize.width * i, 0, screenSize.width, screenSize.height)];
+        tmp.delegate         = self;
+        tmp.contentSize      = screenSize;
+        tmp.maximumZoomScale = 2.0;
+        tmp.minimumZoomScale = 1.0;
+        [tmp addSubview:imageView];
+        
+        [self.scrollView addSubview:tmp];
     }
     
-    self.scrollView.maximumZoomScale               = 2;
-    self.scrollView.minimumZoomScale               = 0.2;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator   = NO;
     self.scrollView.delegate                       = self;
@@ -80,6 +86,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
     
 }
@@ -99,7 +106,7 @@
 
 -(UIView*) viewForZoomingInScrollView:(UIScrollView *)scrollView {
     
-    return self.scrollView.subviews[self.currentPage];
+    return scrollView.subviews[0];
     
 }
 

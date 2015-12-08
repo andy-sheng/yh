@@ -9,8 +9,10 @@
 #import "YHNewsCell.h"
 #import "YHConfig.h"
 #import <UIImageView+AFNetworking.h>
+#import <TTTAttributedLabel.h>
+
 #define IDENTTIFIER @"newsCell"
-@interface YHNewsCell () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface YHNewsCell () <TTTAttributedLabelDelegate>
 
 @property (weak, nonatomic) YHNews *news;
 
@@ -22,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UILabel *likesCount;
 @property (weak, nonatomic) IBOutlet UILabel *commentsCount;
-@property (weak, nonatomic) IBOutlet UILabel *comments;
+@property (weak, nonatomic) IBOutlet TTTAttributedLabel *comments;
 @property (weak, nonatomic) IBOutlet UIImageView *img0;
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
@@ -61,9 +63,28 @@
     self.location.text      = self.news.location;
     self.likesCount.text    = [NSString stringWithFormat:@"赞:%ld", self.news.likesCount];
     self.commentsCount.text = [NSString stringWithFormat:@"评论:%ld", self.news.commentsCount];
+
+    self.comments.enabledTextCheckingTypes = NSTextCheckingTypeLink;
+    
+    
+    self.comments.text = @"hehe:haha";
+    
+    self.comments.delegate = self;
+    self.comments.text = @"hehe:haha";
+    [self.comments addLinkToURL:[NSURL URLWithString:@"action://test"] withRange:[self.comments.text rangeOfString:@"hehe"]];
+//    [self.comments setText:@"hehe:haha" afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+//        NSRange test = [[mutableAttributedString string] rangeOfString:@"hehe"];
+//        [mutableAttributedString addAttribute:NSLinkAttributeName value:@"ttt" range:test];
+//        
+//        return mutableAttributedString;
+//    }];
     
     [self initImages];
     
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+    [_delegate nameTouched];
 }
 
 - (void) initImages {
@@ -93,7 +114,6 @@
         } else {
             [self.img2 setImage:nil];
         }
-        
         urlStr = imageCount > 3 ? [self.news.images objectAtIndex:3] : nil;
         if (urlStr) {
             [self.img3 setImageWithURL:[NSURL URLWithString:urlStr]];
@@ -124,12 +144,30 @@
 
 - (void)awakeFromNib {
     
-    //
-    _car.layer.cornerRadius = 6;
-    _car.layer.masksToBounds = YES;
+    // car tag
+    self.car.layer.cornerRadius  = 6;
+    self.car.layer.masksToBounds = YES;
     
+    // images
+    self.img0.layer.cornerRadius  = 6;
+    self.img0.layer.masksToBounds = YES;
+    self.img1.layer.cornerRadius  = 6;
+    self.img1.layer.masksToBounds = YES;
+    self.img2.layer.cornerRadius  = 6;
+    self.img2.layer.masksToBounds = YES;
+    self.img3.layer.cornerRadius  = 6;
+    self.img3.layer.masksToBounds = YES;
+    self.img4.layer.cornerRadius  = 6;
+    self.img4.layer.masksToBounds = YES;
+    self.img5.layer.cornerRadius  = 6;
+    self.img5.layer.masksToBounds = YES;
     
-    _content.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - _content.frame.origin.x - 8;
+    // comments
+    self.comments.layer.cornerRadius = 6;
+    self.comments.layer.masksToBounds = YES;
+
+    
+    self.content.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - _content.frame.origin.x - 8;
     
     //set avatar touched action
     [self.avatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nameTouched:)]];

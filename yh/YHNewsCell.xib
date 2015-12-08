@@ -54,18 +54,11 @@
                         <color key="textColor" red="0.73731971153846154" green="0.73731971153846154" blue="0.73731971153846154" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="赞3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kp-r6-xGS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kp-r6-xGS">
                         <rect key="frame" x="527" y="65" width="21.5" height="16"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.80977564102564104" green="0.80977564102564104" blue="0.80977564102564104" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-Jp-mzd">
-                        <rect key="frame" x="557.5" y="65.5" width="34.5" height="16"/>
-                        <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.80977564099999999" green="0.80977564099999999" blue="0.80977564099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGv-kH-4vf">
@@ -75,7 +68,7 @@
                         <color key="textColor" red="0.67810496794871788" green="0.67810496794871788" blue="0.67810496794871788" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-Vq-zfK">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-Vq-zfK">
                         <rect key="frame" x="76" y="89.5" width="80" height="80"/>
                         <animations/>
                         <constraints>
@@ -83,15 +76,15 @@
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="T8t-RS-Iax"/>
                         </constraints>
                     </imageView>
-                    <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-yg-ta5">
+                    <imageView tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-yg-ta5">
                         <rect key="frame" x="164" y="89.5" width="80" height="80"/>
                         <animations/>
                     </imageView>
-                    <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="vNI-dB-ToW">
+                    <imageView tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="vNI-dB-ToW">
                         <rect key="frame" x="252" y="89.5" width="80" height="80"/>
                         <animations/>
                     </imageView>
-                    <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-Aq-nbh">
+                    <imageView tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="qfG-Aq-nbh">
                         <rect key="frame" x="76" y="177.5" width="80" height="80"/>
                         <animations/>
                         <constraints>
@@ -99,11 +92,7 @@
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="kJ2-p9-Q7I"/>
                         </constraints>
                     </imageView>
-                    <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-AD-Yc4">
-                        <rect key="frame" x="164" y="177.5" width="80" height="80"/>
-                        <animations/>
-                    </imageView>
-                    <imageView tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="QG6-ee-pMz">
+                    <imageView tag="5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="QG6-ee-pMz">
                         <rect key="frame" x="252" y="177" width="80" height="80"/>
                         <animations/>
                     </imageView>
@@ -115,12 +104,23 @@
                             <constraint firstAttribute="width" constant="60" id="dWa-kL-G9N"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="496" placeholderIntrinsicHeight="20.5" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULp-bg-jrD">
+                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="496" placeholderIntrinsicHeight="20.5" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULp-bg-jrD" customClass="TTTAttributedLabel">
                         <rect key="frame" x="76" y="265" width="516" height="20.5"/>
                         <animations/>
                         <color key="backgroundColor" red="0.79621394230769227" green="0.79621394230769227" blue="0.79621394230769227" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-AD-Yc4">
+                        <rect key="frame" x="164" y="177" width="80" height="80"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fw7-Jp-mzd">
+                        <rect key="frame" x="557" y="65" width="34.5" height="16"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.80977564099999999" green="0.80977564099999999" blue="0.80977564099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -178,7 +178,7 @@
             <connections>
                 <outlet property="avatar" destination="XVn-NY-JAF" id="XkK-Rm-57F"/>
                 <outlet property="car" destination="UCa-zh-sZr" id="VC8-ld-hfs"/>
-                <outlet property="comments" destination="ULp-bg-jrD" id="cQy-Xh-cYm"/>
+                <outlet property="comments" destination="ULp-bg-jrD" id="gXr-AX-LyG"/>
                 <outlet property="commentsCount" destination="Fw7-Jp-mzd" id="gjY-ou-oc5"/>
                 <outlet property="content" destination="fu9-7i-Fvg" id="bZV-2m-9me"/>
                 <outlet property="img0" destination="1JM-Vq-zfK" id="cZb-Yk-nXe"/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98DF4F70C0492E08DE13F9EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE98627A4B3D459F2EC6716 /* libPods.a */; };
 		A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */; };
 		A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A383281BFD9FBC00C564B9 /* YHNewsList.m */; };
 		A1B8DFE11BDF70BE0097F732 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8DFE01BDF70BE0097F732 /* main.m */; };
@@ -31,7 +32,6 @@
 		A1B8E12A1BE8B0BC0097F732 /* avatar_for_news.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B8E1291BE8B0BC0097F732 /* avatar_for_news.png */; };
 		A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E12C1BE8B15B0097F732 /* YHNews.m */; };
 		A1E8B0691BF33601007E1119 /* YHChangeCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */; };
-		D0DB63C3E1CB58FA83024EE1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD839DD692A9DE5EFFEEAA8B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		2785E74F1F842FBAE34F90C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5DE98627A4B3D459F2EC6716 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12F3C3F1BF19BB800F92EE2 /* YHNewsCellActionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHNewsCellActionProtocol.h; sourceTree = "<group>"; };
 		A15B87E71BF1B41000554F8D /* YHImageDisplayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHImageDisplayerController.h; sourceTree = "<group>"; };
 		A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHImageDisplayerController.m; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		A1E8B0671BF33601007E1119 /* YHChangeCoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChangeCoverController.h; sourceTree = "<group>"; };
 		A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChangeCoverController.m; sourceTree = "<group>"; };
 		B1BE15B25FCA9A804A8CB519 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		BD839DD692A9DE5EFFEEAA8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0DB63C3E1CB58FA83024EE1 /* libPods.a in Frameworks */,
+				98DF4F70C0492E08DE13F9EE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +310,7 @@
 		D0052EB2870D6D6A968AF4A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BD839DD692A9DE5EFFEEAA8B /* libPods.a */,
+				5DE98627A4B3D459F2EC6716 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
