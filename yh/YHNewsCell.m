@@ -24,13 +24,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UILabel *likesCount;
 @property (weak, nonatomic) IBOutlet UILabel *commentsCount;
-@property (weak, nonatomic) IBOutlet TTTAttributedLabel *comments;
+@property (weak, nonatomic) IBOutlet UITextView *comments;
 @property (weak, nonatomic) IBOutlet UIImageView *img0;
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
 @property (weak, nonatomic) IBOutlet UIImageView *img4;
 @property (weak, nonatomic) IBOutlet UIImageView *img5;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeight;
 
 
 @end
@@ -64,20 +65,10 @@
     self.likesCount.text    = [NSString stringWithFormat:@"赞:%ld", self.news.likesCount];
     self.commentsCount.text = [NSString stringWithFormat:@"评论:%ld", self.news.commentsCount];
 
-    self.comments.enabledTextCheckingTypes = NSTextCheckingTypeLink;
-    
-    
-    self.comments.text = @"hehe:haha";
-    
-    self.comments.delegate = self;
-    self.comments.text = @"hehe:haha";
-    [self.comments addLinkToURL:[NSURL URLWithString:@"action://test"] withRange:[self.comments.text rangeOfString:@"hehe"]];
-//    [self.comments setText:@"hehe:haha" afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
-//        NSRange test = [[mutableAttributedString string] rangeOfString:@"hehe"];
-//        [mutableAttributedString addAttribute:NSLinkAttributeName value:@"ttt" range:test];
-//        
-//        return mutableAttributedString;
-//    }];
+
+    self.comments.text = @"引用的\na\na\na";
+
+
     
     [self initImages];
     
@@ -143,6 +134,7 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     
     // car tag
     self.car.layer.cornerRadius  = 6;
@@ -196,6 +188,10 @@
     [super layoutSubviews];
 }
 
+- (void)layoutIfNeeded {
+    [super layoutIfNeeded];
+    self.commentsHeight.constant = [self.comments sizeThatFits:CGSizeMake(self.comments.frame.size.width, MAXFLOAT)].height;
+}
 
 -(void) imgTouched:(UITapGestureRecognizer*)gestureRecgnizer {
     if (((UIImageView *)gestureRecgnizer.view).image == nil) {
@@ -210,9 +206,18 @@
     
 }
 
+
 -(void) nameTouched:(UITapGestureRecognizer*)gestureRecgnizer {
     [_delegate nameTouched];
 }
 
+- (NSInteger) getHeight {
+    [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
+    self.bounds = CGRectMake(0.0f,0.0f, 328, CGRectGetHeight(self.bounds));
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    return [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + + 1;
+}
 
 @end
