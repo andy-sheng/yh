@@ -10,6 +10,6 @@
 #define config_h
 
 
-#define SERVER_ADDR @"http://ipv6.andysheng.me:8080/yh-test-data/"
+#define SERVER_ADDR @"http://andysheng.me:8080/yh-test-data/"
 
 #endif /* config_h */
