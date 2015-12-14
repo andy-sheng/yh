@@ -35,7 +35,7 @@
 - (void)updateConstraints {
     UILabel *comment1 = [[UILabel alloc] init];
     comment1.numberOfLines = 0;
-    comment1.backgroundColor = [UIColor grayColor];
+    comment1.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     comment1.text = @"评论评论";
     [self.contentView addSubview:comment1];
     
@@ -48,10 +48,10 @@
     }];
     
     UIImageView *line = [[UIImageView alloc] init];
-    line.backgroundColor = [UIColor grayColor];
+    line.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
     [self.contentView addSubview:line];
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@1);
+        make.height.equalTo(@1);
         make.top.equalTo(comment1.mas_bottom).with.offset(8);
         make.leading.equalTo(line.superview.mas_leadingMargin);
         make.trailing.equalTo(line.superview.mas_trailingMargin);

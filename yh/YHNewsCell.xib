@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="268" id="CtR-Nq-z6b" customClass="YHNewsCell">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="271" id="CtR-Nq-z6b" customClass="YHNewsCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="271"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CtR-Nq-z6b" id="oOH-MV-gUK">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="267.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="600" height="270.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="36" placeholderIntrinsicHeight="21.5" text="恒宇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1B-re-qaT">
@@ -75,14 +75,6 @@
                         <color key="textColor" red="0.67810496794871788" green="0.67810496794871788" blue="0.67810496794871788" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-Vq-zfK">
-                        <rect key="frame" x="76" y="89" width="80" height="80"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="1JM-Vq-zfK" secondAttribute="height" multiplier="1:1" id="FDI-lA-WaA"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="T8t-RS-Iax"/>
-                        </constraints>
-                    </imageView>
                     <imageView tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="YDw-yg-ta5">
                         <rect key="frame" x="164" y="89" width="80" height="80"/>
                         <animations/>
@@ -111,17 +103,17 @@
                             <constraint firstAttribute="width" constant="60" id="dWa-kL-G9N"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" placeholderIntrinsicWidth="496" placeholderIntrinsicHeight="20.5" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULp-bg-jrD">
-                        <rect key="frame" x="76" y="265" width="516" height="21"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.79621394230769227" green="0.79621394230769227" blue="0.79621394230769227" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="hZe-AD-Yc4">
                         <rect key="frame" x="164" y="177" width="80" height="80"/>
                         <animations/>
+                    </imageView>
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1JM-Vq-zfK">
+                        <rect key="frame" x="76" y="89" width="80" height="80"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="1JM-Vq-zfK" secondAttribute="height" multiplier="1:1" id="FDI-lA-WaA"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="T8t-RS-Iax"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <animations/>
@@ -139,6 +131,7 @@
                     <constraint firstItem="YDw-yg-ta5" firstAttribute="height" secondItem="1JM-Vq-zfK" secondAttribute="height" id="IAx-mh-2hH"/>
                     <constraint firstItem="1JM-Vq-zfK" firstAttribute="leading" secondItem="d1B-re-qaT" secondAttribute="leading" id="Jo0-TJ-0Ah"/>
                     <constraint firstItem="YDw-yg-ta5" firstAttribute="bottom" secondItem="1JM-Vq-zfK" secondAttribute="bottom" id="KAs-rG-biE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="qfG-Aq-nbh" secondAttribute="bottom" id="KVh-rc-jby"/>
                     <constraint firstItem="hZe-AD-Yc4" firstAttribute="leading" secondItem="qfG-Aq-nbh" secondAttribute="trailing" constant="8" symbolic="YES" id="Khh-SW-YfG"/>
                     <constraint firstItem="QG6-ee-pMz" firstAttribute="leading" secondItem="hZe-AD-Yc4" secondAttribute="trailing" constant="8" symbolic="YES" id="Kyv-W6-f9f"/>
                     <constraint firstItem="XVn-NY-JAF" firstAttribute="leading" secondItem="oOH-MV-gUK" secondAttribute="leadingMargin" id="N4K-TC-DGD"/>
@@ -168,6 +161,11 @@
                     <constraint firstItem="UCa-zh-sZr" firstAttribute="leading" secondItem="d1B-re-qaT" secondAttribute="trailing" constant="8" symbolic="YES" id="zIP-if-rSO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Fw7-Jp-mzd" secondAttribute="trailing" id="zbe-yr-ZTD"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="KVh-rc-jby"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
             <connections>
@@ -186,7 +184,7 @@
                 <outlet property="name" destination="d1B-re-qaT" id="szU-ty-Tuf"/>
                 <outlet property="time" destination="eGv-kH-4vf" id="JD2-XE-F6Z"/>
             </connections>
-            <point key="canvasLocation" x="177" y="250"/>
+            <point key="canvasLocation" x="177" y="251.5"/>
         </tableViewCell>
     </objects>
     <resources>
