@@ -139,6 +139,7 @@
             self.messageTableViewController = self.messageTableViewController ? self.messageTableViewController
                 :[[MessageTableViewController alloc] init];
             self.currentTable = self.messageTableViewController;
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发起群聊" style:UIBarButtonItemStylePlain target:nil action:nil];
             break;
         case 2:
             self.nearbyTableViewController = self.nearbyTableViewController ? self.nearbyTableViewController

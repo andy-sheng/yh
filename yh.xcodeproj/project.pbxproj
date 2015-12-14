@@ -63,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		2785E74F1F842FBAE34F90C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5DE98627A4B3D459F2EC6716 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		750356761C1713DD00F5B8F6 /* 张三.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "张三.jpg"; sourceTree = "<group>"; };
 		750356781C1713E300F5B8F6 /* 李四.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "李四.jpg"; sourceTree = "<group>"; };
 		758E9D9D1C16C55200C78FDF /* YHChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChartCell.h; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		758E9DA01C16C57400C78FDF /* YHStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStatus.h; sourceTree = "<group>"; };
 		758E9DA11C16C57400C78FDF /* YHStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStatus.m; sourceTree = "<group>"; };
 		758E9DA31C16D58F00C78FDF /* YHChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHChartCell.xib; sourceTree = "<group>"; };
-		5DE98627A4B3D459F2EC6716 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12F3C3F1BF19BB800F92EE2 /* YHNewsCellActionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHNewsCellActionProtocol.h; sourceTree = "<group>"; };
 		A14E73271C1AE0CF000406D8 /* YHNewsCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewsCellController.h; sourceTree = "<group>"; };
 		A14E73281C1AE0CF000406D8 /* YHNewsCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewsCellController.m; sourceTree = "<group>"; };
@@ -382,6 +382,7 @@
 				A1B8DFD91BDF70BD0097F732 /* Frameworks */,
 				A1B8DFDA1BDF70BD0097F732 /* Resources */,
 				C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */,
+				D1E1312D2A9C803CC3D0D42F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -540,6 +541,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1E1312D2A9C803CC3D0D42F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

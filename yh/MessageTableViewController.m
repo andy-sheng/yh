@@ -25,7 +25,6 @@
     NSMutableArray *tableSource;
     NSMutableArray *_status;
 }
-
 - (void) show {
     
 }
@@ -36,8 +35,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initData1];
     
+    
+    //UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"Title"];
+    
+    NSLog(@"changeButton");
+    
+    [self initData1];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"YHChartCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
     NSLog(@"REGISTERED");
