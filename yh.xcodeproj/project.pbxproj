@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 750356761C1713DD00F5B8F6 /* 张三.jpg */; };
+		750356791C1713E300F5B8F6 /* 李四.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 750356781C1713E300F5B8F6 /* 李四.jpg */; };
+		758E9D9F1C16C55200C78FDF /* YHChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E9D9E1C16C55200C78FDF /* YHChartCell.m */; };
+		758E9DA21C16C57400C78FDF /* YHStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E9DA11C16C57400C78FDF /* YHStatus.m */; };
+		758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758E9DA31C16D58F00C78FDF /* YHChartCell.xib */; };
 		A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */; };
 		A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A383281BFD9FBC00C564B9 /* YHNewsList.m */; };
 		A1B8DFE11BDF70BE0097F732 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8DFE01BDF70BE0097F732 /* main.m */; };
@@ -53,6 +58,13 @@
 
 /* Begin PBXFileReference section */
 		2785E74F1F842FBAE34F90C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		750356761C1713DD00F5B8F6 /* 张三.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "张三.jpg"; sourceTree = "<group>"; };
+		750356781C1713E300F5B8F6 /* 李四.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "李四.jpg"; sourceTree = "<group>"; };
+		758E9D9D1C16C55200C78FDF /* YHChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChartCell.h; sourceTree = "<group>"; };
+		758E9D9E1C16C55200C78FDF /* YHChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChartCell.m; sourceTree = "<group>"; };
+		758E9DA01C16C57400C78FDF /* YHStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStatus.h; sourceTree = "<group>"; };
+		758E9DA11C16C57400C78FDF /* YHStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStatus.m; sourceTree = "<group>"; };
+		758E9DA31C16D58F00C78FDF /* YHChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHChartCell.xib; sourceTree = "<group>"; };
 		A12F3C3F1BF19BB800F92EE2 /* YHNewsCellActionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHNewsCellActionProtocol.h; sourceTree = "<group>"; };
 		A15B87E71BF1B41000554F8D /* YHImageDisplayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHImageDisplayerController.h; sourceTree = "<group>"; };
 		A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHImageDisplayerController.m; sourceTree = "<group>"; };
@@ -131,6 +143,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		750356751C1713BB00F5B8F6 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				750356781C1713E300F5B8F6 /* 李四.jpg */,
+				750356761C1713DD00F5B8F6 /* 张三.jpg */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		A12F3C3B1BF1955E00F92EE2 /* tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,8 +299,14 @@
 		A1B8E10F1BE7081E0097F732 /* 消息 */ = {
 			isa = PBXGroup;
 			children = (
+				750356751C1713BB00F5B8F6 /* image */,
+				758E9DA01C16C57400C78FDF /* YHStatus.h */,
+				758E9DA11C16C57400C78FDF /* YHStatus.m */,
+				758E9D9D1C16C55200C78FDF /* YHChartCell.h */,
+				758E9D9E1C16C55200C78FDF /* YHChartCell.m */,
 				A1B8E0721BE232360097F732 /* MessageTableViewController.h */,
 				A1B8E0731BE232360097F732 /* MessageTableViewController.m */,
+				758E9DA31C16D58F00C78FDF /* YHChartCell.xib */,
 			);
 			name = "消息";
 			sourceTree = "<group>";
@@ -393,7 +420,7 @@
 				TargetAttributes = {
 					A1B8DFDB1BDF70BD0097F732 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 9E9C2ZNYDA;
+						DevelopmentTeam = QMRGKUWNTX;
 					};
 					A1B8DFF41BDF70BE0097F732 = {
 						CreatedOnToolsVersion = 7.1;
@@ -432,11 +459,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750356791C1713E300F5B8F6 /* 李四.jpg in Resources */,
 				A1B8E11D1BE72A760097F732 /* avatar.png in Resources */,
 				A1B8DFEF1BDF70BE0097F732 /* LaunchScreen.storyboard in Resources */,
 				A1B8E1111BE70AC40097F732 /* YHNewsCoverCell.xib in Resources */,
+				758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */,
 				A1B8E11F1BE89DA30097F732 /* YHNewsCell.xib in Resources */,
 				A1B8DFEC1BDF70BE0097F732 /* Assets.xcassets in Resources */,
+				750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */,
 				A1B8E11B1BE726CE0097F732 /* cover.png in Resources */,
 				A1B8DFEA1BDF70BE0097F732 /* Main.storyboard in Resources */,
 				A1B8E12A1BE8B0BC0097F732 /* avatar_for_news.png in Resources */,
@@ -498,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1B8E0701BE21F3A0097F732 /* YHNewsTableViewController.m in Sources */,
+				758E9D9F1C16C55200C78FDF /* YHChartCell.m in Sources */,
 				A1B8E1141BE70C9E0097F732 /* YHNewsCoverCell.m in Sources */,
 				A1B8E07F1BE232650097F732 /* ContactTableViewController.m in Sources */,
 				A1B8E0751BE232360097F732 /* MessageTableViewController.m in Sources */,
@@ -506,6 +537,7 @@
 				A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */,
 				A1B8E01B1BDFD10D0097F732 /* MainViewController.m in Sources */,
 				A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */,
+				758E9DA21C16C57400C78FDF /* YHStatus.m in Sources */,
 				A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */,
 				A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */,
 				A1B8E07A1BE2324E0097F732 /* NearbyTableViewController.m in Sources */,
@@ -650,10 +682,13 @@
 			baseConfigurationReference = 2785E74F1F842FBAE34F90C5 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = yh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BUPT.yh;
+				PRODUCT_BUNDLE_IDENTIFIER = bupt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -662,10 +697,13 @@
 			baseConfigurationReference = B1BE15B25FCA9A804A8CB519 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = yh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BUPT.yh;
+				PRODUCT_BUNDLE_IDENTIFIER = bupt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

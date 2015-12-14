@@ -7,12 +7,24 @@
 //
 
 #import "MessageTableViewController.h"
+#import "YHChartCell.h"
+#import "YHStatus.h"
 
-@interface MessageTableViewController ()<UITableViewDataSource, UITableViewDelegate>
+//#define identifier1 @"MyMessage"
+//#define identifier2 @"OthersMessage"
+@interface MessageTableViewController ()<UITableViewDataSource, UITableViewDelegate,SegViewProtocol>
 
 @end
 
 @implementation MessageTableViewController
+{
+    NSMutableArray *tableName;
+    NSMutableArray *tableMessage;
+    NSMutableArray *tableImage;
+    NSMutableArray *tableTimer;
+    NSMutableArray *tableSource;
+    NSMutableArray *_status;
+}
 
 - (void) show {
     
@@ -24,7 +36,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initData1];
     
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"YHChartCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
+    NSLog(@"REGISTERED");
+    
+        //[self.tableView registerNib:[UINib nibWithNibName:@"chartcell2" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
     self.tableView.delegate =  self;
     self.tableView.dataSource = self;
     
@@ -33,6 +51,28 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)initData1{
+    tableName=[NSMutableArray arrayWithObjects:@"张三",@"李四",nil];
+    
+    tableMessage=[NSMutableArray arrayWithObjects:@"今天天气好好好好😀",@"谢谢！！", nil];
+    
+    tableImage=[NSMutableArray arrayWithObjects:@"张三.jpg",@"李四.jpg",nil];
+    
+    tableTimer=[NSMutableArray arrayWithObjects:@"09:34",@"10:20", nil];
+    
+    tableSource=[NSMutableArray arrayWithObjects:@"奥迪",@"奇瑞QQ", nil];
+}
+
+-(void)initData2{
+    NSString *path=[[NSBundle mainBundle] pathForResource:@"StatusInfo" ofType:@"plist"];
+    NSArray *array=[NSArray arrayWithContentsOfFile:path];
+    _status=[[NSMutableArray alloc]init];
+    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
+        [_status addObject:[YHStatus staticinitwithYHstatusdic:obj]];
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,38 +87,52 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return [tableName count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    cell.textLabel.text = @"消息";
+    YHChartCell *cell = (YHChartCell *)[tableView dequeueReusableCellWithIdentifier:[YHChartCell identifier] forIndexPath:indexPath];
+    
+    cell.userName.text=[tableName objectAtIndex:indexPath.row];
+    cell.userMessage.text=[tableMessage objectAtIndex:indexPath.row];
+    cell.userSource.text=[tableSource objectAtIndex:indexPath.row];
+    cell.userTimer.text=[tableTimer objectAtIndex:indexPath.row];
+    cell.userImage.image=[UIImage imageNamed:[tableImage objectAtIndex:indexPath.row]];
+    //cell.textLabel.text = @"消息";
     
     // Configure the cell...
     
     return cell;
 }
 
-/*
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 97;
+}
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableImage removeObjectAtIndex:indexPath.row];
+        [tableMessage removeObjectAtIndex:indexPath.row];
+        [tableName removeObjectAtIndex:indexPath.row];
+        [tableSource removeObjectAtIndex:indexPath.row];
+        [tableTimer removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

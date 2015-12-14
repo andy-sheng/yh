@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 #import "SegViewProtocol.h"
-@interface MessageTableViewController : UITableViewController<SegViewProtocol>
-
+@interface MessageTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,SegViewProtocol>
 @end
