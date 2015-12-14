@@ -9,8 +9,10 @@
 #import "YHNewsCell.h"
 #import "YHConfig.h"
 #import <UIImageView+AFNetworking.h>
+#import <TTTAttributedLabel.h>
+
 #define IDENTTIFIER @"newsCell"
-@interface YHNewsCell () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface YHNewsCell () <TTTAttributedLabelDelegate>
 
 @property (weak, nonatomic) YHNews *news;
 
@@ -22,13 +24,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *location;
 @property (weak, nonatomic) IBOutlet UILabel *likesCount;
 @property (weak, nonatomic) IBOutlet UILabel *commentsCount;
-@property (weak, nonatomic) IBOutlet UILabel *comments;
+@property (weak, nonatomic) IBOutlet UITextView *comments;
 @property (weak, nonatomic) IBOutlet UIImageView *img0;
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
 @property (weak, nonatomic) IBOutlet UIImageView *img4;
 @property (weak, nonatomic) IBOutlet UIImageView *img5;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *commentsHeight;
 
 
 @end
@@ -61,9 +64,18 @@
     self.location.text      = self.news.location;
     self.likesCount.text    = [NSString stringWithFormat:@"赞:%ld", self.news.likesCount];
     self.commentsCount.text = [NSString stringWithFormat:@"评论:%ld", self.news.commentsCount];
+
+
+    self.comments.text = @"引用的\na\na\na";
+
+
     
     [self initImages];
     
+}
+
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+    [_delegate nameTouched];
 }
 
 - (void) initImages {
@@ -93,7 +105,6 @@
         } else {
             [self.img2 setImage:nil];
         }
-        
         urlStr = imageCount > 3 ? [self.news.images objectAtIndex:3] : nil;
         if (urlStr) {
             [self.img3 setImageWithURL:[NSURL URLWithString:urlStr]];
@@ -123,13 +134,32 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     
-    //
-    _car.layer.cornerRadius = 6;
-    _car.layer.masksToBounds = YES;
+    // car tag
+    self.car.layer.cornerRadius  = 6;
+    self.car.layer.masksToBounds = YES;
     
+    // images
+    self.img0.layer.cornerRadius  = 6;
+    self.img0.layer.masksToBounds = YES;
+    self.img1.layer.cornerRadius  = 6;
+    self.img1.layer.masksToBounds = YES;
+    self.img2.layer.cornerRadius  = 6;
+    self.img2.layer.masksToBounds = YES;
+    self.img3.layer.cornerRadius  = 6;
+    self.img3.layer.masksToBounds = YES;
+    self.img4.layer.cornerRadius  = 6;
+    self.img4.layer.masksToBounds = YES;
+    self.img5.layer.cornerRadius  = 6;
+    self.img5.layer.masksToBounds = YES;
     
-    _content.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - _content.frame.origin.x - 8;
+    // comments
+    self.comments.layer.cornerRadius = 6;
+    self.comments.layer.masksToBounds = YES;
+
+    
+    self.content.preferredMaxLayoutWidth = [UIScreen mainScreen].bounds.size.width - _content.frame.origin.x - 8;
     
     //set avatar touched action
     [self.avatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nameTouched:)]];
@@ -158,6 +188,10 @@
     [super layoutSubviews];
 }
 
+- (void)layoutIfNeeded {
+    [super layoutIfNeeded];
+    self.commentsHeight.constant = [self.comments sizeThatFits:CGSizeMake(self.comments.frame.size.width, MAXFLOAT)].height;
+}
 
 -(void) imgTouched:(UITapGestureRecognizer*)gestureRecgnizer {
     if (((UIImageView *)gestureRecgnizer.view).image == nil) {
@@ -172,9 +206,18 @@
     
 }
 
+
 -(void) nameTouched:(UITapGestureRecognizer*)gestureRecgnizer {
     [_delegate nameTouched];
 }
 
+- (NSInteger) getHeight {
+    [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
+    self.bounds = CGRectMake(0.0f,0.0f, 328, CGRectGetHeight(self.bounds));
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    return [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height + + 1;
+}
 
 @end

@@ -9,8 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="317" id="CtR-Nq-z6b" customClass="YHNewsCell">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="317"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="268" id="CtR-Nq-z6b" customClass="YHNewsCell">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CtR-Nq-z6b" id="oOH-MV-gUK">
                 <rect key="frame" x="0.0" y="0.0" width="600" height="316"/>
@@ -111,13 +111,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="lrW-jG-unv" firstAttribute="leading" secondItem="d1B-re-qaT" secondAttribute="leading" id="0CN-aS-Kyj"/>
-                    <constraint firstItem="ULp-bg-jrD" firstAttribute="trailing" secondItem="oOH-MV-gUK" secondAttribute="trailingMargin" id="1L6-qx-FP2"/>
                     <constraint firstItem="YDw-yg-ta5" firstAttribute="leading" secondItem="1JM-Vq-zfK" secondAttribute="trailing" constant="8" symbolic="YES" id="1Pc-o6-HG1"/>
                     <constraint firstItem="QG6-ee-pMz" firstAttribute="height" secondItem="qfG-Aq-nbh" secondAttribute="height" id="6eh-FJ-5t1"/>
                     <constraint firstItem="fu9-7i-Fvg" firstAttribute="top" secondItem="d1B-re-qaT" secondAttribute="bottom" constant="8" symbolic="YES" id="7LH-c3-u0g"/>
                     <constraint firstItem="hZe-AD-Yc4" firstAttribute="height" secondItem="qfG-Aq-nbh" secondAttribute="height" id="7Qf-9f-cep"/>
                     <constraint firstItem="lrW-jG-unv" firstAttribute="top" secondItem="fu9-7i-Fvg" secondAttribute="bottom" constant="8" symbolic="YES" id="9O5-N9-puZ"/>
-                    <constraint firstItem="ULp-bg-jrD" firstAttribute="leading" secondItem="d1B-re-qaT" secondAttribute="leading" id="BD4-vN-bCj"/>
                     <constraint firstItem="qfG-Aq-nbh" firstAttribute="leading" secondItem="1JM-Vq-zfK" secondAttribute="leading" id="BaS-pt-buD"/>
                     <constraint firstItem="Fw7-Jp-mzd" firstAttribute="leading" secondItem="0Kp-r6-xGS" secondAttribute="trailing" constant="8" symbolic="YES" id="FYC-Lz-RHk"/>
                     <constraint firstItem="YDw-yg-ta5" firstAttribute="width" secondItem="1JM-Vq-zfK" secondAttribute="width" id="Ggx-4u-fYi"/>
@@ -128,7 +126,6 @@
                     <constraint firstItem="hZe-AD-Yc4" firstAttribute="leading" secondItem="qfG-Aq-nbh" secondAttribute="trailing" constant="8" symbolic="YES" id="Khh-SW-YfG"/>
                     <constraint firstItem="QG6-ee-pMz" firstAttribute="leading" secondItem="hZe-AD-Yc4" secondAttribute="trailing" constant="8" symbolic="YES" id="Kyv-W6-f9f"/>
                     <constraint firstItem="XVn-NY-JAF" firstAttribute="leading" secondItem="oOH-MV-gUK" secondAttribute="leadingMargin" id="N4K-TC-DGD"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ULp-bg-jrD" secondAttribute="bottom" priority="250" id="NrT-YM-XCh"/>
                     <constraint firstItem="XVn-NY-JAF" firstAttribute="top" secondItem="oOH-MV-gUK" secondAttribute="topMargin" id="O4w-P8-y4q"/>
                     <constraint firstItem="0Kp-r6-xGS" firstAttribute="top" secondItem="fu9-7i-Fvg" secondAttribute="bottom" constant="8" symbolic="YES" id="O7J-3L-bfv"/>
                     <constraint firstItem="d1B-re-qaT" firstAttribute="leading" secondItem="XVn-NY-JAF" secondAttribute="trailing" constant="8" symbolic="YES" id="OG0-TW-Tc4"/>
@@ -138,7 +135,6 @@
                     <constraint firstItem="qfG-Aq-nbh" firstAttribute="top" secondItem="1JM-Vq-zfK" secondAttribute="bottom" constant="8" id="QPJ-li-Qnj"/>
                     <constraint firstItem="vNI-dB-ToW" firstAttribute="leading" secondItem="YDw-yg-ta5" secondAttribute="trailing" constant="8" symbolic="YES" id="RN9-ef-sBS"/>
                     <constraint firstItem="vNI-dB-ToW" firstAttribute="width" secondItem="1JM-Vq-zfK" secondAttribute="width" id="Rmt-4r-VWQ"/>
-                    <constraint firstItem="ULp-bg-jrD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lrW-jG-unv" secondAttribute="bottom" constant="8" id="SJQ-Qr-bqa"/>
                     <constraint firstItem="QG6-ee-pMz" firstAttribute="width" secondItem="qfG-Aq-nbh" secondAttribute="width" id="VWC-pt-7xJ"/>
                     <constraint firstItem="hZe-AD-Yc4" firstAttribute="width" secondItem="qfG-Aq-nbh" secondAttribute="width" id="XUx-77-wHb"/>
                     <constraint firstItem="vNI-dB-ToW" firstAttribute="bottom" secondItem="1JM-Vq-zfK" secondAttribute="bottom" id="YkW-x0-UVB"/>
@@ -147,13 +143,12 @@
                     <constraint firstItem="UCa-zh-sZr" firstAttribute="centerY" secondItem="d1B-re-qaT" secondAttribute="centerY" id="fc1-eR-c1M"/>
                     <constraint firstItem="vNI-dB-ToW" firstAttribute="height" secondItem="1JM-Vq-zfK" secondAttribute="height" id="fpN-iv-avO"/>
                     <constraint firstItem="hZe-AD-Yc4" firstAttribute="bottom" secondItem="qfG-Aq-nbh" secondAttribute="bottom" id="fsa-Vc-2g7"/>
-                    <constraint firstItem="ULp-bg-jrD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YDw-yg-ta5" secondAttribute="bottom" constant="8" id="hS4-9c-5mg"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fu9-7i-Fvg" secondAttribute="trailing" id="hS6-eK-hHh"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eGv-kH-4vf" secondAttribute="trailing" constant="0.5" id="hfS-xg-mPS"/>
-                    <constraint firstItem="ULp-bg-jrD" firstAttribute="top" secondItem="QG6-ee-pMz" secondAttribute="bottom" constant="8" symbolic="YES" id="lge-17-8Y8"/>
                     <constraint firstItem="eGv-kH-4vf" firstAttribute="baseline" secondItem="d1B-re-qaT" secondAttribute="baseline" id="poR-2i-aGu"/>
                     <constraint firstItem="fu9-7i-Fvg" firstAttribute="leading" secondItem="d1B-re-qaT" secondAttribute="leading" id="qH6-Bh-Bub"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="XVn-NY-JAF" secondAttribute="bottom" id="rzY-Gt-Iiv"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="qfG-Aq-nbh" secondAttribute="bottom" id="zEX-ep-IvD"/>
                     <constraint firstItem="UCa-zh-sZr" firstAttribute="leading" secondItem="d1B-re-qaT" secondAttribute="trailing" constant="8" symbolic="YES" id="zIP-if-rSO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Fw7-Jp-mzd" secondAttribute="trailing" id="zbe-yr-ZTD"/>
                 </constraints>
@@ -161,7 +156,6 @@
             <connections>
                 <outlet property="avatar" destination="XVn-NY-JAF" id="XkK-Rm-57F"/>
                 <outlet property="car" destination="UCa-zh-sZr" id="VC8-ld-hfs"/>
-                <outlet property="comments" destination="ULp-bg-jrD" id="cQy-Xh-cYm"/>
                 <outlet property="commentsCount" destination="Fw7-Jp-mzd" id="gjY-ou-oc5"/>
                 <outlet property="content" destination="fu9-7i-Fvg" id="bZV-2m-9me"/>
                 <outlet property="img0" destination="1JM-Vq-zfK" id="cZb-Yk-nXe"/>
@@ -175,7 +169,7 @@
                 <outlet property="name" destination="d1B-re-qaT" id="szU-ty-Tuf"/>
                 <outlet property="time" destination="eGv-kH-4vf" id="JD2-XE-F6Z"/>
             </connections>
-            <point key="canvasLocation" x="177" y="274.5"/>
+            <point key="canvasLocation" x="177" y="250"/>
         </tableViewCell>
     </objects>
     <resources>

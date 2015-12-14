@@ -21,16 +21,22 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - CYLTabBarController (1.0.2)
+  - Masonry (0.6.3)
   - MJRefresh (3.0.2)
+  - TTTAttributedLabel (1.13.4)
 
 DEPENDENCIES:
   - AFNetworking
   - CYLTabBarController
+  - Masonry
   - MJRefresh
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   CYLTabBarController: 234a83de95403fe7a4f94e0413facb56ebce46fd
+  Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   MJRefresh: 85377dc8c70395cf329e102a5c55505ef387c2e1
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
 
 COCOAPODS: 0.38.2

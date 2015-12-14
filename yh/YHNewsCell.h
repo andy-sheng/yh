@@ -15,4 +15,5 @@
 
 + (NSString *)identifier;
 - (void)initWithNews:(YHNews *)news;
+- (NSInteger)getHeight;
 @end
