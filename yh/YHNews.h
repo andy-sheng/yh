@@ -20,7 +20,7 @@
 @property (nonatomic, assign) NSInteger likesCount;
 @property (nonatomic, assign) NSInteger commentsCount;
 @property (nonatomic, strong) NSArray *images;
-@property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, strong) NSMutableArray *comments;
 
 + (YHNews *)news;
 + (YHNews *)newsWithDic:(id) dic;

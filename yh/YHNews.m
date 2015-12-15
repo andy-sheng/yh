@@ -40,7 +40,15 @@
         [images addObject:[NSString stringWithFormat:@"%@%@", SERVER_ADDR, tmp[i]]];
     }
     news.images        = [images copy];
-
+    
+    NSMutableArray *comments = [[NSMutableArray alloc] init];
+    tmp = [dic valueForKey:@"comments"];
+    NSUInteger commentsCount = [tmp count];
+    for (NSUInteger i = 0; i < commentsCount; i++) {
+        [comments addObject:tmp[i]];
+    }
+    news.comments = comments;
+    NSLog(@"%@", comments);
     return news;
 }
 

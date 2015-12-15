@@ -7,13 +7,16 @@
 //
 
 #import "YHNewsCommentsCell.h"
+#import <TTTAttributedLabel.h>
 #import <Masonry.h>
 
 #define IDENTIFIER @"commentsCell"
 @interface YHNewsCommentsCell()
 
 @property (weak, nonatomic) IBOutlet UIImageView *tranImage;
-@property (strong,nonatomic) NSMutableArray *comments;
+@property (strong, nonatomic) NSMutableArray *comments;
+@property (strong,nonatomic) NSMutableArray *commentLabels;
+@property (strong, nonatomic) UIView *sparator;
 @end
 
 @implementation YHNewsCommentsCell
@@ -27,40 +30,73 @@
     
 }
 
-- (void)initWithComments {
-    
+- (void)initWithComments:(NSMutableArray*) comments{
+    self.comments = nil;
+    self.comments = comments;
     [self updateConstraints];
 }
 
 - (void)updateConstraints {
-    UILabel *comment1 = [[UILabel alloc] init];
-    comment1.numberOfLines = 0;
-    comment1.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
-    comment1.text = @"评论评论";
-    [self.contentView addSubview:comment1];
+    
+    self.commentLabels = nil;
+    self.sparator      = nil;
+    
+    self.commentLabels = [[NSMutableArray alloc] init];
+    NSUInteger commentsCount = [self.comments count];
+    NSLog(@"commentsCount:%ld", commentsCount);
     
     
-    [comment1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tranImage.mas_bottom);
-        make.leading.equalTo(self.tranImage.mas_leading);
-        make.trailing.equalTo(comment1.superview.mas_trailingMargin);
-        //make.bottom.equalTo(comment1.superview.mas_bottomMargin);
-    }];
-    
-    UIImageView *line = [[UIImageView alloc] init];
-    line.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
-    [self.contentView addSubview:line];
-    [line mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@1);
-        make.top.equalTo(comment1.mas_bottom).with.offset(8);
-        make.leading.equalTo(line.superview.mas_leadingMargin);
-        make.trailing.equalTo(line.superview.mas_trailingMargin);
-        make.bottom.equalTo(line.superview.mas_bottomMargin);
-    }];
+    for(NSUInteger i = 0; i < commentsCount; i++) {
+        UILabel *commentLabel = [[UILabel alloc] init];
+        //初始化label
+        commentLabel.userInteractionEnabled = YES;
+        commentLabel.numberOfLines          = 0;
+        commentLabel.backgroundColor        = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1];
+        commentLabel.tag                    = [[self.comments[i] objectForKey:@"cid"] integerValue];
+        [commentLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(commentLabelTouched:)]];
+        [commentLabel addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(commentLabelPressed:)]];
+        
+        if (![[self.comments[i] objectForKey:@"to"]  isEqual: @""]) {
+            commentLabel.text = [NSString stringWithFormat:@"%@回复%@:%@", [self.comments[i] objectForKey:@"from"], [self.comments[i] objectForKey:@"to"], [self.comments[i] objectForKey:@"content"]];
+        } else {
+            commentLabel.text = [NSString stringWithFormat:@"%@:%@", [self.comments[i] objectForKey:@"from"], [self.comments[i] objectForKey:@"content"]];
+        }
+        
+        [self.contentView addSubview:commentLabel];
+        if (i == 0) {
+            [commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.tranImage.mas_bottom);
+                make.leading.equalTo(self.tranImage.mas_leading);
+                make.trailing.equalTo(commentLabel.superview.mas_trailingMargin);
+            }];
+        } else {
+            [commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                UILabel *lastLabel = (UILabel *)self.commentLabels[i - 1];
+                make.top.equalTo(lastLabel.mas_bottom);
+                make.leading.equalTo(lastLabel.mas_leading);
+                make.trailing.equalTo(lastLabel.mas_trailing);
+            }];
+        }
+        [self.commentLabels addObject:commentLabel];
+        
+    }
+    if (commentsCount != 0) {
+        [self.commentLabels[commentsCount - 1] mas_updateConstraints:^(MASConstraintMaker *make) {
+            UILabel *lastLabel = self.commentLabels[commentsCount - 1];
+            make.bottom.equalTo(lastLabel.superview.mas_bottomMargin);
+        }];
+    }
     
     [super updateConstraints];
 }
 
 
+- (void) commentLabelTouched:(UITapGestureRecognizer *)recognizer{
+    NSLog(@"%ld-comment touched", recognizer.view.tag);
+}
+
+- (void) commentLabelPressed:(UILongPressGestureRecognizer *)recognizer{
+    NSLog(@"%ld-comment pressed", recognizer.view.tag);
+}
 
 @end

@@ -11,6 +11,6 @@
 @interface YHNewsCommentsCell : UITableViewCell
 
 + (NSString *)identifier;
-- (void)initWithComments;
+- (void)initWithComments:(NSMutableArray*) comments;
 
 @end
