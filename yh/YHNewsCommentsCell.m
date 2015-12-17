@@ -13,10 +13,9 @@
 #define IDENTIFIER @"commentsCell"
 @interface YHNewsCommentsCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *tranImage;
+@property (strong, nonatomic) UIImageView *tranImage;
 @property (strong, nonatomic) NSMutableArray *comments;
 @property (strong,nonatomic) NSMutableArray *commentLabels;
-@property (strong, nonatomic) UIView *sparator;
 @end
 
 @implementation YHNewsCommentsCell
@@ -25,25 +24,29 @@
     return IDENTIFIER;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-}
 
 - (void)initWithComments:(NSMutableArray*) comments{
     self.comments = nil;
     self.comments = comments;
+    if (!self.tranImage) {
+        self.tranImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tra.png"]];
+        [self.contentView addSubview:self.tranImage];
+        [self.tranImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@10);
+            make.height.equalTo(@10);
+            make.top.equalTo(self.tranImage.superview.mas_top);
+            make.leading.equalTo(@50);
+        }];
+    }
     [self updateConstraints];
 }
 
 - (void)updateConstraints {
     
     self.commentLabels = nil;
-    self.sparator      = nil;
     
     self.commentLabels = [[NSMutableArray alloc] init];
     NSUInteger commentsCount = [self.comments count];
-    NSLog(@"commentsCount:%ld", commentsCount);
     
     
     for(NSUInteger i = 0; i < commentsCount; i++) {

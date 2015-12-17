@@ -90,7 +90,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCell" bundle:nil] forCellReuseIdentifier:[YHNewsCell identifier]];
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCoverCell" bundle:nil] forCellReuseIdentifier:[YHNewsCoverCell identifier]];
-    [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCommentsCell" bundle:nil] forCellReuseIdentifier:[YHNewsCommentsCell identifier]];
+    [self.tableView registerClass:[YHNewsCommentsCell class] forCellReuseIdentifier:[YHNewsCommentsCell identifier]];
     [self.tableView registerClass:[YHNewsSparatorCell class] forCellReuseIdentifier:[YHNewsSparatorCell identifier]];
     
     //data
@@ -120,7 +120,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSLog(@"%ld", [self.newsList count] + 1);
-    return [self.newsList count] * 2 + 1;
+    return [self.newsList count] * 3 + 1;
 }
 
 
@@ -137,12 +137,12 @@
         if (indexPath.row % 3 == 1) {
             YHNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCell identifier]];
             cell.delegate = self;
-            [cell initWithNews:[self.newsList newsAtIndex:(indexPath.row - 1) / 2]];
+            [cell initWithNews:[self.newsList newsAtIndex:(indexPath.row - 1) / 3]];
             
             return cell;
         } else if(indexPath.row % 3 == 2) {
             YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
-            [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row / 2 - 1)].comments];
+            [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
             
             return cell;
         } else {
@@ -162,7 +162,7 @@
     } else {
         if (indexPath.row % 3 == 1) {
             YHNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCell identifier]];
-            [cell initWithNews:[self.newsList newsAtIndex:(indexPath.row - 1) / 2]];
+            [cell initWithNews:[self.newsList newsAtIndex:(indexPath.row - 1) / 3]];
             [cell setNeedsUpdateConstraints];
             [cell updateConstraintsIfNeeded];
             cell.bounds = CGRectMake(0.0f,0.0f, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(cell.bounds));
@@ -173,7 +173,7 @@
         } else if(indexPath.row % 3 == 2){
             
             YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
-            [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row / 2 - 1)].comments];
+            [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
             [cell updateConstraints];
             [cell setNeedsLayout];
             [cell layoutIfNeeded];
