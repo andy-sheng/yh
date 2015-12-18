@@ -7,6 +7,7 @@
 //
 
 #import "MessageTableViewController.h"
+#import "ChatTogetherController.h"
 #import "YHChartCell.h"
 #import "YHStatus.h"
 
@@ -109,7 +110,12 @@
     
     return cell;
 }
-
+- (UIViewController*)loadViewControllerWithStoryBoard:(NSString*)storyBoardName Identifier:(NSString*) identifier{
+    return [[UIStoryboard storyboardWithName:storyBoardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+}
+- (UIViewController*)getBarBtnResponder{
+    return [self loadViewControllerWithStoryBoard:@"Message" Identifier:@"chatTogether"];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 97;

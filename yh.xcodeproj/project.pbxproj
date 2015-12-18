@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 750356761C1713DD00F5B8F6 /* 张三.jpg */; };
 		750356791C1713E300F5B8F6 /* 李四.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 750356781C1713E300F5B8F6 /* 李四.jpg */; };
+		7578DF761C240041003C6983 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7578DF751C240041003C6983 /* Message.storyboard */; };
+		7578DF7F1C2409CB003C6983 /* ChatTogetherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */; };
 		758E9D9F1C16C55200C78FDF /* YHChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E9D9E1C16C55200C78FDF /* YHChartCell.m */; };
 		758E9DA21C16C57400C78FDF /* YHStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E9DA11C16C57400C78FDF /* YHStatus.m */; };
 		758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758E9DA31C16D58F00C78FDF /* YHChartCell.xib */; };
@@ -69,6 +71,9 @@
 		5DE98627A4B3D459F2EC6716 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		750356761C1713DD00F5B8F6 /* 张三.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "张三.jpg"; sourceTree = "<group>"; };
 		750356781C1713E300F5B8F6 /* 李四.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "李四.jpg"; sourceTree = "<group>"; };
+		7578DF751C240041003C6983 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		7578DF7D1C2409CB003C6983 /* ChatTogetherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTogetherController.h; sourceTree = "<group>"; };
+		7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTogetherController.m; sourceTree = "<group>"; };
 		758E9D9D1C16C55200C78FDF /* YHChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChartCell.h; sourceTree = "<group>"; };
 		758E9D9E1C16C55200C78FDF /* YHChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChartCell.m; sourceTree = "<group>"; };
 		758E9DA01C16C57400C78FDF /* YHStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStatus.h; sourceTree = "<group>"; };
@@ -173,9 +178,40 @@
 			name = image;
 			sourceTree = "<group>";
 		};
+		7578DF771C2400B9003C6983 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A1B8E0731BE232360097F732 /* MessageTableViewController.m */,
+				A1B8E0721BE232360097F732 /* MessageTableViewController.h */,
+				7578DF7D1C2409CB003C6983 /* ChatTogetherController.h */,
+				7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		7578DF781C2400C9003C6983 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				758E9DA01C16C57400C78FDF /* YHStatus.h */,
+				758E9DA11C16C57400C78FDF /* YHStatus.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		7578DF791C2400D2003C6983 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				758E9DA31C16D58F00C78FDF /* YHChartCell.xib */,
+				758E9D9E1C16C55200C78FDF /* YHChartCell.m */,
+				758E9D9D1C16C55200C78FDF /* YHChartCell.h */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		A12F3C3B1BF1955E00F92EE2 /* tools */ = {
 			isa = PBXGroup;
 			children = (
+				A1B8E0821BE237830097F732 /* SegViewProtocol.h */,
 				A12F3C3F1BF19BB800F92EE2 /* YHNewsCellActionProtocol.h */,
 				A1A383261BFC74FD00C564B9 /* YHConfig.h */,
 				A184EF0B1C1EA81D00422DFA /* YHStructs.h */,
@@ -292,7 +328,6 @@
 				A1B8E10B1BE707D30097F732 /* 动态 */,
 				A1B8E0191BDFD10D0097F732 /* MainViewController.h */,
 				A1B8E01A1BDFD10D0097F732 /* MainViewController.m */,
-				A1B8E0821BE237830097F732 /* SegViewProtocol.h */,
 				A1B8E0C51BE332C90097F732 /* ChildViewScrollHandleDelegate.h */,
 			);
 			name = "车友圈";
@@ -330,14 +365,11 @@
 		A1B8E10F1BE7081E0097F732 /* 消息 */ = {
 			isa = PBXGroup;
 			children = (
+				7578DF791C2400D2003C6983 /* cell */,
+				7578DF781C2400C9003C6983 /* model */,
+				7578DF771C2400B9003C6983 /* controller */,
 				750356751C1713BB00F5B8F6 /* image */,
-				758E9DA01C16C57400C78FDF /* YHStatus.h */,
-				758E9DA11C16C57400C78FDF /* YHStatus.m */,
-				758E9D9D1C16C55200C78FDF /* YHChartCell.h */,
-				758E9D9E1C16C55200C78FDF /* YHChartCell.m */,
-				A1B8E0721BE232360097F732 /* MessageTableViewController.h */,
-				A1B8E0731BE232360097F732 /* MessageTableViewController.m */,
-				758E9DA31C16D58F00C78FDF /* YHChartCell.xib */,
+				7578DF751C240041003C6983 /* Message.storyboard */,
 			);
 			name = "消息";
 			sourceTree = "<group>";
@@ -405,6 +437,7 @@
 				A1B8DFD91BDF70BD0097F732 /* Frameworks */,
 				A1B8DFDA1BDF70BD0097F732 /* Resources */,
 				C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */,
+				93A2F3CFAE488A5CD34284D4 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -508,6 +541,7 @@
 				758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */,
 				A170DF8F1C1C24FE00F29480 /* avatar_for_news.png in Resources */,
 				A170DF911C1C255B00F29480 /* tra.png in Resources */,
+				7578DF761C240041003C6983 /* Message.storyboard in Resources */,
 				A1B8E11F1BE89DA30097F732 /* YHNewsCell.xib in Resources */,
 				A1B8DFEC1BDF70BE0097F732 /* Assets.xcassets in Resources */,
 				750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */,
@@ -550,6 +584,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		93A2F3CFAE488A5CD34284D4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,6 +634,7 @@
 				A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */,
 				A1B8E01B1BDFD10D0097F732 /* MainViewController.m in Sources */,
 				A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */,
+				7578DF7F1C2409CB003C6983 /* ChatTogetherController.m in Sources */,
 				758E9DA21C16C57400C78FDF /* YHStatus.m in Sources */,
 				A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */,
 				A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */,
