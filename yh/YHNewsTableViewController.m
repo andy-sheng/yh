@@ -17,6 +17,7 @@
 #import "YHConfig.h"
 #import "YHNewsList.h"
 #import "YHNewsSparatorCell.h"
+#import "MainViewController.h"
 #import <MJRefresh.h>
 #import <AFNetworking.h>
 
@@ -26,11 +27,27 @@
 @interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,YHNewsCellActionProtocol>
 
 @property(nonatomic, strong) YHNewsList *newsList;
-
+@property(nonatomic, weak) MainViewController *mainController;
 @end
 
 @implementation YHNewsTableViewController
 
+- (YHNewsTableViewController *)initWithMainViewController:(MainViewController*)mainViewController {
+    self.mainController = mainViewController;
+    return self;
+}
+
+- (UIViewController*)loadViewControllerWithStoryBoard:(NSString*)storyBoardName Identifier:(NSString*) identifier{
+    return [[UIStoryboard storyboardWithName:storyBoardName bundle:nil] instantiateViewControllerWithIdentifier:identifier];
+}
+
+- (UIViewController *)getBarBtnResponder {
+    return [self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHPublishViewController"];
+}
+
+- (NSString *)getBarBtnTitle {
+    return @"发布动态";
+}
 - (void)refresh {
     NSLog(@"refreshing...");
 
@@ -56,19 +73,27 @@
 }
 
 - (void)nameTouched {
-    
-    [_mainViewDelegate displayTimeLine];
+    [self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHTimelineViewController"] animated:YES];
 }
 
 - (void)imageTouchedWithNid:(NSInteger)nid imageId:(NSInteger)imageId {
     
-    [_mainViewDelegate displayImagesWithUrlstrs:[self.newsList newsWithNid:nid].images imageId:imageId];
+    [self.mainController presentViewController:[YHImageDisplayerController displayerWithUrlstrs:[self.newsList newsWithNid:nid].images imageId:imageId] animated:YES completion:nil];
     
 }
 
 -(void)coverTouched {
     
-    [_mainViewDelegate changeCover];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"更换背景" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHChangeCoverController"] animated:YES];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [self.mainController presentViewController:alert animated:YES completion:nil];
     
 }
 
@@ -95,8 +120,6 @@
     
     //data
     self.newsList = [YHNewsList newsList];
-    
-    
     
 }
 

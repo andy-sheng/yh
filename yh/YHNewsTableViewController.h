@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SegViewProtocol.h"
-#import "YHMainViewDelegate.h"
+#import "MainViewController.h"
 //#import "ChildViewScrollHandleDelegate.h"
 
 @interface YHNewsTableViewController : UITableViewController <SegViewProtocol>
 
-@property(nonatomic, weak)id<YHMainViewDelegate> mainViewDelegate;
-
+- (YHNewsTableViewController *)initWithMainViewController:(MainViewController *)mainViewController;
 @end

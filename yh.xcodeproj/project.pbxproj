@@ -16,9 +16,9 @@
 		A14E73291C1AE0CF000406D8 /* YHNewsCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = A14E73281C1AE0CF000406D8 /* YHNewsCellController.m */; };
 		A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */; };
 		A170DF8B1C1C187B00F29480 /* YHNewsCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A170DF8A1C1C187B00F29480 /* YHNewsCommentsCell.m */; };
-		A170DF8D1C1C18A400F29480 /* YHNewsCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A170DF8C1C1C18A400F29480 /* YHNewsCommentsCell.xib */; };
 		A170DF8F1C1C24FE00F29480 /* avatar_for_news.png in Resources */ = {isa = PBXBuildFile; fileRef = A170DF8E1C1C24FE00F29480 /* avatar_for_news.png */; };
 		A170DF911C1C255B00F29480 /* tra.png in Resources */ = {isa = PBXBuildFile; fileRef = A170DF901C1C255B00F29480 /* tra.png */; };
+		A1830F781C1FF7610023A6A6 /* YHNewsSparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1830F771C1FF7610023A6A6 /* YHNewsSparatorCell.m */; };
 		A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A383281BFD9FBC00C564B9 /* YHNewsList.m */; };
 		A1B8DFE11BDF70BE0097F732 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8DFE01BDF70BE0097F732 /* main.m */; };
 		A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8DFE31BDF70BE0097F732 /* AppDelegate.m */; };
@@ -41,6 +41,9 @@
 		A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E1271BE8AA340097F732 /* YHNewsCell.m */; };
 		A1B8E12A1BE8B0BC0097F732 /* avatar_for_news.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B8E1291BE8B0BC0097F732 /* avatar_for_news.png */; };
 		A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E12C1BE8B15B0097F732 /* YHNews.m */; };
+		A1CE29961C23A85700B10198 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CE29951C23A85700B10198 /* News.storyboard */; };
+		A1CE29991C23A91900B10198 /* YHPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CE29981C23A91900B10198 /* YHPublishViewController.m */; };
+		A1CE299C1C23B18F00B10198 /* YHTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CE299B1C23B18F00B10198 /* YHTimelineViewController.m */; };
 		A1E8B0691BF33601007E1119 /* YHChangeCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */; };
 /* End PBXBuildFile section */
 
@@ -76,12 +79,13 @@
 		A14E73281C1AE0CF000406D8 /* YHNewsCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewsCellController.m; sourceTree = "<group>"; };
 		A15B87E71BF1B41000554F8D /* YHImageDisplayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHImageDisplayerController.h; sourceTree = "<group>"; };
 		A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHImageDisplayerController.m; sourceTree = "<group>"; };
-		A15B87EB1BF1B87600554F8D /* YHMainViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHMainViewDelegate.h; sourceTree = "<group>"; };
 		A170DF891C1C187B00F29480 /* YHNewsCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewsCommentsCell.h; sourceTree = "<group>"; };
 		A170DF8A1C1C187B00F29480 /* YHNewsCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewsCommentsCell.m; sourceTree = "<group>"; };
-		A170DF8C1C1C18A400F29480 /* YHNewsCommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHNewsCommentsCell.xib; sourceTree = "<group>"; };
 		A170DF8E1C1C24FE00F29480 /* avatar_for_news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_for_news.png; sourceTree = "<group>"; };
 		A170DF901C1C255B00F29480 /* tra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tra.png; sourceTree = "<group>"; };
+		A1830F761C1FF7610023A6A6 /* YHNewsSparatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewsSparatorCell.h; sourceTree = "<group>"; };
+		A1830F771C1FF7610023A6A6 /* YHNewsSparatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewsSparatorCell.m; sourceTree = "<group>"; };
+		A184EF0B1C1EA81D00422DFA /* YHStructs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHStructs.h; sourceTree = "<group>"; };
 		A1A383261BFC74FD00C564B9 /* YHConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHConfig.h; sourceTree = "<group>"; };
 		A1A383271BFD9FBC00C564B9 /* YHNewsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewsList.h; sourceTree = "<group>"; };
 		A1A383281BFD9FBC00C564B9 /* YHNewsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewsList.m; sourceTree = "<group>"; };
@@ -124,6 +128,11 @@
 		A1B8E1291BE8B0BC0097F732 /* avatar_for_news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar_for_news.png; sourceTree = SOURCE_ROOT; };
 		A1B8E12B1BE8B15B0097F732 /* YHNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNews.h; sourceTree = "<group>"; };
 		A1B8E12C1BE8B15B0097F732 /* YHNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNews.m; sourceTree = "<group>"; };
+		A1CE29951C23A85700B10198 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		A1CE29971C23A91900B10198 /* YHPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPublishViewController.h; sourceTree = "<group>"; };
+		A1CE29981C23A91900B10198 /* YHPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPublishViewController.m; sourceTree = "<group>"; };
+		A1CE299A1C23B18F00B10198 /* YHTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTimelineViewController.h; sourceTree = "<group>"; };
+		A1CE299B1C23B18F00B10198 /* YHTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTimelineViewController.m; sourceTree = "<group>"; };
 		A1E8B0671BF33601007E1119 /* YHChangeCoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChangeCoverController.h; sourceTree = "<group>"; };
 		A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChangeCoverController.m; sourceTree = "<group>"; };
 		B1BE15B25FCA9A804A8CB519 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,8 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				A12F3C3F1BF19BB800F92EE2 /* YHNewsCellActionProtocol.h */,
-				A15B87EB1BF1B87600554F8D /* YHMainViewDelegate.h */,
 				A1A383261BFC74FD00C564B9 /* YHConfig.h */,
+				A184EF0B1C1EA81D00422DFA /* YHStructs.h */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -185,7 +194,8 @@
 				A1B8E1271BE8AA340097F732 /* YHNewsCell.m */,
 				A170DF891C1C187B00F29480 /* YHNewsCommentsCell.h */,
 				A170DF8A1C1C187B00F29480 /* YHNewsCommentsCell.m */,
-				A170DF8C1C1C18A400F29480 /* YHNewsCommentsCell.xib */,
+				A1830F761C1FF7610023A6A6 /* YHNewsSparatorCell.h */,
+				A1830F771C1FF7610023A6A6 /* YHNewsSparatorCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -195,12 +205,14 @@
 			children = (
 				A1B8E06D1BE21F3A0097F732 /* YHNewsTableViewController.h */,
 				A1B8E06E1BE21F3A0097F732 /* YHNewsTableViewController.m */,
-				A15B87E71BF1B41000554F8D /* YHImageDisplayerController.h */,
-				A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */,
 				A1E8B0671BF33601007E1119 /* YHChangeCoverController.h */,
 				A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */,
 				A14E73271C1AE0CF000406D8 /* YHNewsCellController.h */,
 				A14E73281C1AE0CF000406D8 /* YHNewsCellController.m */,
+				A1CE29971C23A91900B10198 /* YHPublishViewController.h */,
+				A1CE29981C23A91900B10198 /* YHPublishViewController.m */,
+				A1CE299A1C23B18F00B10198 /* YHTimelineViewController.h */,
+				A1CE299B1C23B18F00B10198 /* YHTimelineViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -271,6 +283,7 @@
 		A1B8E0121BDF7BA30097F732 /* 车友圈 */ = {
 			isa = PBXGroup;
 			children = (
+				A1CE299D1C23E73000B10198 /* vendor */,
 				A12F3C3B1BF1955E00F92EE2 /* tools */,
 				A1B8E1191BE726C10097F732 /* images */,
 				A1B8E10F1BE7081E0097F732 /* 消息 */,
@@ -291,6 +304,7 @@
 				A1A3832B1BFEFAC500C564B9 /* controller */,
 				A1B8E1151BE721B90097F732 /* model */,
 				A1A3832A1BFEFA7400C564B9 /* view */,
+				A1CE29951C23A85700B10198 /* News.storyboard */,
 			);
 			name = "动态";
 			sourceTree = "<group>";
@@ -353,6 +367,15 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		A1CE299D1C23E73000B10198 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				A15B87E71BF1B41000554F8D /* YHImageDisplayerController.h */,
+				A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */,
+			);
+			name = vendor;
+			sourceTree = "<group>";
+		};
 		D0052EB2870D6D6A968AF4A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,7 +405,6 @@
 				A1B8DFD91BDF70BD0097F732 /* Frameworks */,
 				A1B8DFDA1BDF70BD0097F732 /* Resources */,
 				C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */,
-				D1E1312D2A9C803CC3D0D42F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -440,7 +462,7 @@
 				TargetAttributes = {
 					A1B8DFDB1BDF70BD0097F732 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = QMRGKUWNTX;
+						DevelopmentTeam = 9E9C2ZNYDA;
 					};
 					A1B8DFF41BDF70BE0097F732 = {
 						CreatedOnToolsVersion = 7.1;
@@ -485,12 +507,12 @@
 				A1B8E1111BE70AC40097F732 /* YHNewsCoverCell.xib in Resources */,
 				758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */,
 				A170DF8F1C1C24FE00F29480 /* avatar_for_news.png in Resources */,
-				A170DF8D1C1C18A400F29480 /* YHNewsCommentsCell.xib in Resources */,
 				A170DF911C1C255B00F29480 /* tra.png in Resources */,
 				A1B8E11F1BE89DA30097F732 /* YHNewsCell.xib in Resources */,
 				A1B8DFEC1BDF70BE0097F732 /* Assets.xcassets in Resources */,
 				750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */,
 				A1B8E11B1BE726CE0097F732 /* cover.png in Resources */,
+				A1CE29961C23A85700B10198 /* News.storyboard in Resources */,
 				A1B8DFEA1BDF70BE0097F732 /* Main.storyboard in Resources */,
 				A1B8E12A1BE8B0BC0097F732 /* avatar_for_news.png in Resources */,
 			);
@@ -543,21 +565,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D1E1312D2A9C803CC3D0D42F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -565,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1CE299C1C23B18F00B10198 /* YHTimelineViewController.m in Sources */,
 				A1B8E0701BE21F3A0097F732 /* YHNewsTableViewController.m in Sources */,
 				758E9D9F1C16C55200C78FDF /* YHChartCell.m in Sources */,
 				A1B8E1141BE70C9E0097F732 /* YHNewsCoverCell.m in Sources */,
@@ -573,6 +581,7 @@
 				A1B8E0751BE232360097F732 /* MessageTableViewController.m in Sources */,
 				A1E8B0691BF33601007E1119 /* YHChangeCoverController.m in Sources */,
 				A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */,
+				A1CE29991C23A91900B10198 /* YHPublishViewController.m in Sources */,
 				A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */,
 				A1B8E01B1BDFD10D0097F732 /* MainViewController.m in Sources */,
 				A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */,
@@ -583,6 +592,7 @@
 				A1B8E1181BE722070097F732 /* YHUser.m in Sources */,
 				A1B8DFE11BDF70BE0097F732 /* main.m in Sources */,
 				A14E73291C1AE0CF000406D8 /* YHNewsCellController.m in Sources */,
+				A1830F781C1FF7610023A6A6 /* YHNewsSparatorCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,8 +735,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = yh/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bupt;
+				PRODUCT_BUNDLE_IDENTIFIER = bupt1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -740,8 +751,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = yh/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bupt;
+				PRODUCT_BUNDLE_IDENTIFIER = bupt1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

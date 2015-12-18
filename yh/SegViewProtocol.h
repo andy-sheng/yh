@@ -12,7 +12,11 @@
 #import <UIKit/UIKit.h>
 @protocol SegViewProtocol
 
+
+
 @optional
+- (NSString *) getBarBtnTitle;
+- (UIViewController*)getBarBtnResponder;
 - (void) show;
 - (void) hide;
 @end

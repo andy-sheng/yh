@@ -10,5 +10,5 @@
 
 @interface MainViewController : UIViewController
 - (IBAction)segmentTouched:(UISegmentedControl *)sender;
-
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated ;
 @end

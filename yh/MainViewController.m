@@ -13,9 +13,9 @@
 #import "MessageTableViewController.h"
 #import "ContactTableViewController.h"
 #import "YHImageDisplayerController.h"
-#import "YHMainViewDelegate.h"
+#import "YHPublishViewController.h"
 
-@interface MainViewController ()<YHMainViewDelegate>
+@interface MainViewController ()
 {
     YHImageDisplayerController *_imageDisplayer;
 }
@@ -25,37 +25,16 @@
 @property (strong, nonatomic) ContactTableViewController *contactTableViewController;
 @property (strong, nonatomic) MessageTableViewController *messageTableViewController;
 @property (strong, nonatomic) UITableViewController<SegViewProtocol> *currentTable;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *barBtn;
 
 @end
 
 @implementation MainViewController
 
--(void)displayImagesWithUrlstrs:(NSArray *)urlstrs imageId:(NSInteger)imageId{
-    
-    [self presentViewController:[YHImageDisplayerController displayerWithUrlstrs:urlstrs imageId:imageId] animated:YES completion:nil];
-    
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
--(void)displayTimeLine {
-    
-    [self performSegueWithIdentifier:@"timeLine" sender:self];
-    
-}
-
--(void)changeCover {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"更换背景" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self performSegueWithIdentifier:@"changeCover" sender:self];
-    }]];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-
-    }]];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-    
-    
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -67,9 +46,8 @@
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
-    _newsTableController = [[YHNewsTableViewController alloc] init];
+    _newsTableController = [[YHNewsTableViewController alloc] initWithMainViewController:self];
     _currentTable = self.newsTableController;
-    _newsTableController.mainViewDelegate = self;
     
     
     [self addTableView:_currentTable.tableView];
@@ -139,22 +117,28 @@
             self.messageTableViewController = self.messageTableViewController ? self.messageTableViewController
                 :[[MessageTableViewController alloc] init];
             self.currentTable = self.messageTableViewController;
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发起群聊" style:UIBarButtonItemStylePlain target:nil action:nil];
+            self.barBtn.title = @"发起群聊";
             break;
         case 2:
             self.nearbyTableViewController = self.nearbyTableViewController ? self.nearbyTableViewController
                 :[[NearbyTableViewController alloc] init];
             self.currentTable = self.nearbyTableViewController;
+            self.barBtn.title = @"设置过滤";
             break;
         case 3:
             self.contactTableViewController = self.contactTableViewController ? self.contactTableViewController
                 :[[ContactTableViewController alloc] init];
             self.currentTable = self.contactTableViewController;
+            self.barBtn.title = @"设置添加好友";
             break;
         case 0:default:
             self.currentTable = self.newsTableController;
+            self.barBtn.title = [self.currentTable getBarBtnTitle];
             break;
     }
     [self addTableView:self.currentTable.tableView];
+}
+- (IBAction)barItemTouched:(UIBarButtonItem *)sender {
+    [self.navigationController pushViewController:[self.currentTable getBarBtnResponder] animated:YES];
 }
 @end
