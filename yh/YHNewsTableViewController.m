@@ -196,8 +196,11 @@
         } else if(indexPath.row % 3 == 2){
             
             YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
+            if ([[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count] == 0) {
+                return 0;
+            }
             [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
-            [cell updateConstraints];
+            //[cell updateConstraints];
             [cell setNeedsLayout];
             [cell layoutIfNeeded];
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
