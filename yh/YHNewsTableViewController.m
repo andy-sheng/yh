@@ -20,12 +20,16 @@
 #import "MainViewController.h"
 #import <MJRefresh.h>
 #import <AFNetworking.h>
+#import <ASKeyboard.h>
 
 #define COVER_ROW 0
 
 
-@interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate,YHNewsCellActionProtocol>
 
+@interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate,YHNewsCellActionProtocol, YHNewsCommentsCellDelegate>
+@property(nonatomic, strong) ASKeyboard *keyboard;
+@property(assign, nonatomic)CGPoint locInTable;
+@property(nonatomic, strong) UITextField *textfield;
 @property(nonatomic, strong) YHNewsList *newsList;
 @property(nonatomic, weak) MainViewController *mainController;
 @end
@@ -48,6 +52,7 @@
 - (NSString *)getBarBtnTitle {
     return @"发布动态";
 }
+
 - (void)refresh {
     NSLog(@"refreshing...");
 
@@ -106,6 +111,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.estimatedRowHeight = 50;
+    [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)]];
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     //上拉刷新
@@ -118,9 +124,26 @@
     [self.tableView registerClass:[YHNewsCommentsCell class] forCellReuseIdentifier:[YHNewsCommentsCell identifier]];
     [self.tableView registerClass:[YHNewsSparatorCell class] forCellReuseIdentifier:[YHNewsSparatorCell identifier]];
     
-    //data
+    // data
     self.newsList = [YHNewsList newsList];
     
+    // keyboard
+    self.keyboard = [[ASKeyboard alloc] init];
+    [self.mainController.view addSubview:self.keyboard.view];
+}
+
+#pragma mark YHNewsCommentsCellDelegate
+- (void)commentKeyBoardWillPop:(CGPoint) loc{
+    
+    CGPoint keyboardPos = [self.keyboard showWithPluginView];
+    CGFloat offsetY = loc.y - keyboardPos.y
+                            + self.tableView.frame.origin.y;
+    [self.tableView setContentOffset:CGPointMake(0, offsetY) animated:YES];
+    
+}
+
+- (void)hideKeyboard {
+    [self.keyboard hide];
 }
 
 
@@ -142,8 +165,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%ld", [self.newsList count] + 1);
+    
     return [self.newsList count] * 3 + 1;
+    
 }
 
 
@@ -166,15 +190,15 @@
         } else if(indexPath.row % 3 == 2) {
             YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
             [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
-            
+            cell.delegate = self;
             return cell;
         } else {
             YHNewsSparatorCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsSparatorCell identifier]];
             cell = [cell init];
             return cell;
         }
-        
     }
+    
 }
 
 /*cell height*/
@@ -197,6 +221,7 @@
             
             YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
             if ([[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count] == 0) {
+                NSLog(@"%ld", indexPath.row);
                 return 0;
             }
             [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
@@ -215,6 +240,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //NSLog(@"%f", self.tableView.contentInset.top);
 }
+
 
 /*
 // Override to support conditional editing of the table view.

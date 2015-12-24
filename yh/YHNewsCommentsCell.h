@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YHNewsCommentsCellDelegate
+@required
+
+- (void)commentKeyBoardWillPop:(CGPoint) loc;
+
+@end
+
 @interface YHNewsCommentsCell : UITableViewCell
+
+@property (weak, nonatomic) id<YHNewsCommentsCellDelegate> delegate;
 
 + (NSString *)identifier;
 - (void)initWithComments:(NSMutableArray*) comments;

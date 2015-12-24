@@ -20,6 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.6.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ASKeyboard (0.0.1):
+    - Masonry
   - CocoaAsyncSocket (7.4.2)
   - CocoaLumberjack (1.9.2):
     - CocoaLumberjack/Extensions (= 1.9.2)
@@ -175,6 +177,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - ASKeyboard
   - CYLTabBarController
   - Masonry
   - MJRefresh
@@ -183,6 +186,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  ASKeyboard: 7e366104ccf0d087ba368700e37379eec8610e43
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   CYLTabBarController: 234a83de95403fe7a4f94e0413facb56ebce46fd

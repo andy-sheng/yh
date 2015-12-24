@@ -12,8 +12,10 @@
 #import "YHConfig.h"
 
 #define IDENTIFIER @"commentsCell"
-@interface YHNewsCommentsCell()
 
+
+
+@interface YHNewsCommentsCell()
 @property (strong, nonatomic) UIImageView *tranImage;
 @property (weak, nonatomic) NSMutableArray *comments;
 @property (strong,nonatomic) NSMutableArray *commentLabels;
@@ -41,6 +43,7 @@
     
     NSUInteger commentsCount = [self.comments count];
     NSUInteger commentsLabelCount = [self.commentLabels count];
+    NSLog(@"commentscount:%ld commentslabelcount:%ld", commentsCount, commentsLabelCount);
     NSUInteger i = 0;
     
     for (; i < commentsCount && i < commentsLabelCount; i++) { // use the exists comment labels
@@ -88,19 +91,24 @@
             [commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 UIView *lastView = [self.contentView.subviews objectAtIndex:[self.contentView.subviews count] - 2];
                 make.top.equalTo(lastView.mas_bottom);
-                make.leading.equalTo(lastView.mas_leading);
                 make.trailing.equalTo(self.contentView.mas_trailingMargin);
+                make.leading.equalTo(lastView.mas_leading);
             }];
         }
-        UILabel *lastLabel = [self.commentLabels lastObject];
-        [lastLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+
+        [[self.commentLabels lastObject] mas_remakeConstraints:^(MASConstraintMaker *make) {
+            UIView *lastView = [self.contentView.subviews objectAtIndex:[self.contentView.subviews count] - 2];
+            make.top.equalTo(lastView.mas_bottom);
+            make.trailing.equalTo(self.contentView.mas_trailingMargin);
             make.bottom.equalTo(self.contentView.mas_bottomMargin);
+            make.leading.equalTo(lastView.mas_leading);
         }];
         
     }
     
     if (commentsCount < commentsLabelCount) { // commentslabel is more than comment, need to remove label
         for (; i < commentsLabelCount; i++) {
+            NSLog(@"remove:%ld", i);
             [((UILabel *)[self.commentLabels lastObject]) removeFromSuperview];
             [self.commentLabels removeObject:[self.commentLabels lastObject]];
         }
@@ -120,6 +128,8 @@
 
 - (void) commentLabelTouched:(UITapGestureRecognizer *)recognizer{
     NSLog(@"%ld-comment touched", recognizer.view.tag);
+    CGPoint loc = CGPointMake(0, recognizer.view.frame.origin.y + recognizer.view.frame.size.height + self.frame.origin.y);
+    [self.delegate commentKeyBoardWillPop:loc];
 }
 
 - (void) commentLabelPressed:(UILongPressGestureRecognizer *)recognizer{

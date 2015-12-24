@@ -402,10 +402,18 @@
 		A1CE299D1C23E73000B10198 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A1EC5FCF1C2AB562005CE9BB /* YHImageDisplayer */,
+			);
+			name = vendor;
+			sourceTree = "<group>";
+		};
+		A1EC5FCF1C2AB562005CE9BB /* YHImageDisplayer */ = {
+			isa = PBXGroup;
+			children = (
 				A15B87E71BF1B41000554F8D /* YHImageDisplayerController.h */,
 				A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */,
 			);
-			name = vendor;
+			name = YHImageDisplayer;
 			sourceTree = "<group>";
 		};
 		D0052EB2870D6D6A968AF4A8 /* Frameworks */ = {
