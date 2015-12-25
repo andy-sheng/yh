@@ -121,7 +121,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCell" bundle:nil] forCellReuseIdentifier:[YHNewsCell identifier]];
     [self.tableView registerNib:[UINib nibWithNibName:@"YHNewsCoverCell" bundle:nil] forCellReuseIdentifier:[YHNewsCoverCell identifier]];
-    [self.tableView registerClass:[YHNewsCommentsCell class] forCellReuseIdentifier:[YHNewsCommentsCell identifier]];
+    //[self.tableView registerClass:[YHNewsCommentsCell class] forCellReuseIdentifier:[YHNewsCommentsCell identifier]];
     [self.tableView registerClass:[YHNewsSparatorCell class] forCellReuseIdentifier:[YHNewsSparatorCell identifier]];
     
     // data
@@ -188,8 +188,13 @@
             
             return cell;
         } else if(indexPath.row % 3 == 2) {
-            YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
-            [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
+            NSString *reuseId = [NSString stringWithFormat:@"%@-%ld", [YHNewsCommentsCell identifier], [[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count]];
+            YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:reuseId];
+            //[cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
+            if (!cell) {
+                cell = [[YHNewsCommentsCell alloc] initWithCommentsCount:[[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count]];
+            }
+            [cell setupComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
             cell.delegate = self;
             return cell;
         } else {
@@ -218,17 +223,12 @@
             
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         } else if(indexPath.row % 3 == 2){
-            
-            YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCommentsCell identifier]];
+
             if ([[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count] == 0) {
                 NSLog(@"%ld", indexPath.row);
                 return 0;
             }
-            [cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
-            //[cell updateConstraints];
-            [cell setNeedsLayout];
-            [cell layoutIfNeeded];
-            return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+            return UITableViewAutomaticDimension;
             
         } else {
             //YHNewsSparatorCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsSparatorCell identifier]];

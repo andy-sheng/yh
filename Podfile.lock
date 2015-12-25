@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - ASKeyboard (0.0.1):
@@ -28,9 +28,9 @@ PODS:
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
-  - CYLTabBarController (1.0.2)
+  - CYLTabBarController (1.0.5)
   - Masonry (0.6.3)
-  - MJRefresh (3.0.2)
+  - MJRefresh (3.0.8)
   - TTTAttributedLabel (1.13.4)
   - XMPPFramework (3.6.6):
     - XMPPFramework/Authentication (= 3.6.6)
@@ -176,7 +176,7 @@ PODS:
     - XMPPFramework/Core
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (~> 2.6.1)
   - ASKeyboard
   - CYLTabBarController
   - Masonry
@@ -185,13 +185,13 @@ DEPENDENCIES:
   - XMPPFramework
 
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   ASKeyboard: 7e366104ccf0d087ba368700e37379eec8610e43
   CocoaAsyncSocket: f5783bdedd232d91b89769bc4b5a1580aed518ad
   CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
-  CYLTabBarController: 234a83de95403fe7a4f94e0413facb56ebce46fd
+  CYLTabBarController: c758aba2b1aac34be1c217047079ab11b4a18f4a
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
-  MJRefresh: 85377dc8c70395cf329e102a5c55505ef387c2e1
+  MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   XMPPFramework: b06c210b0b71c08aa41a646bffd2021fa43bb43b
 

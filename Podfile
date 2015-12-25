@@ -1,5 +1,5 @@
 pod 'CYLTabBarController'
-pod 'AFNetworking'
+pod 'AFNetworking','~>2.6.1'
 pod 'MJRefresh'
 pod 'TTTAttributedLabel'
 pod 'Masonry'

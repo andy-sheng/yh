@@ -21,5 +21,7 @@
 
 + (NSString *)identifier;
 - (void)initWithComments:(NSMutableArray*) comments;
+- (instancetype)initWithCommentsCount:(NSInteger) count;
+- (void)setupComments:(NSMutableArray*) comments;
 
 @end
