@@ -9,7 +9,7 @@
 #import "YHChartCell.h"
 #import "YHStatus.h"
 #import "YHConfig.h"
-#import "AFNetWorking.h"
+#import "UIImageView+AFNetWorking.h"
 #define  IDENTIFIER @"chartCell"
 @interface YHChartCell()
 
@@ -22,9 +22,11 @@
 @synthesize userMessage=_userMessage;
 @synthesize userTimer=_userTimer;
 @synthesize userSource=_userSource;
+
 - (void)awakeFromNib {
     // Initialization code
     [self updateConstraints];
+    //[self setStatus:self.cellstatus];
     //self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
 }
 -(void)setStatus:(YHStatus *)status{
@@ -32,19 +34,11 @@
     _userName.text=status.userNameData;
     _userSource.text=status.userSourceData;
     _userTimer.text=status.userCreateAtData;
-    /*
-    NSString *path=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,status.userImageData];
-    NSURL *url=[NSURL URLWithString:path];
-    NSURLRequest *request=[NSURLRequest requestWithURL:url];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _userImage.image=responseObject;
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"%s","Image in MessageView download error!");
-    }];
-    [operation start];
-     */
+    
+    self.userImageURL=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,status.userImageData];
+    [_userImage setImageWithURL:[NSURL URLWithString:self.userImageURL]];
+    _userMessage.text=status.usertextData;
+    
 }
 
 -(void)updateConstraints{

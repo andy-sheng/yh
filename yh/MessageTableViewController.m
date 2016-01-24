@@ -74,12 +74,7 @@
         [alert addAction:defaultAction];
         [self presentViewController:alert animated:YES completion:nil];
     }];
-    int a =(int)_status.count;
-    NSLog(@"%d",a);
-    if (a==0)
-    {
-        NSLog(@"WRONG!没有消息了");
-    }
+    
     [operation start];
 }
 
@@ -97,19 +92,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int a =(int)_status.count;
     NSLog(@"%d",a);
-    if (a==0)
-    {
-        NSLog(@"wRONG!");
-        return 0;
-    }
-    else
-        return _status.count;
+    return _status.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YHChartCell *cell = (YHChartCell *)[tableView dequeueReusableCellWithIdentifier:[YHChartCell identifier] forIndexPath:indexPath];
     YHStatus *cells=[_status objectAtIndex:indexPath.row];
+    
     cell.userName.text=cells.userNameData;
     NSLog(@"%@",cells.userNameData);
     cell.userMessage.text=cells.usertextData;
@@ -118,8 +108,10 @@
      NSLog(@"%@",cells.userSourceData);
     cell.userTimer.text=cells.userCreateAtData;
      NSLog(@"%@",cells.userCreateAtData);
-
-
+    cell.userImageURL=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,cells.userImageData];
+    
+    [cell.userImage setImageWithURL:[NSURL URLWithString:cell.userImageURL]];
+    /*
     NSString *path_image=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,cells.userImageData];
     NSURL *url=[NSURL URLWithString:path_image];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
@@ -131,8 +123,9 @@
      ^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
         weakCell.imageView.image=image;
         [weakCell setNeedsLayout];
-         [weakCell updateConstraints];
+        [weakCell updateConstraints];
     } failure:nil];
+     */
     //cell.textLabel.text = @"消息";
 
     // Configure the cell...

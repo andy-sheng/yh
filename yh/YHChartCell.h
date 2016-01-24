@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userMessage;
 @property (weak, nonatomic) IBOutlet UILabel *userTimer;
 @property (weak, nonatomic) IBOutlet UILabel *userSource;
+
+@property(weak,nonatomic)NSString *userImageURL;
 +(NSString *)identifier;
 @end
