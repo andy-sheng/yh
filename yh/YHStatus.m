@@ -13,11 +13,11 @@
 -(YHStatus *)initwithYHstatusdic:(NSDictionary *)dic{
     id checkself =[super init];
     if (self ==checkself) {
-        self.Id = [dic[@"id"] longLongValue];
-        self.usertextData =dic[@"text"];
-        self.userImageData=dic[@"profileImage"];
-        self.userNameData = dic[@"userName"];
-        self.userSourceData=dic[@"source"];
+        self.Id = [dic[@"nid"] longLongValue];
+        self.usertextData =dic[@"message"];
+        self.userImageData=dic[@"avatar"];
+        self.userNameData = dic[@"name"];
+        self.userSourceData=dic[@"car"];
         self.userCreateAtData= dic[@"createAt"];
     }
     return self;

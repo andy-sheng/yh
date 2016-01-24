@@ -8,7 +8,8 @@
 
 #import "YHChartCell.h"
 #import "YHStatus.h"
-
+#import "YHConfig.h"
+#import "UIImageView+AFNetWorking.h"
 #define  IDENTIFIER @"chartCell"
 @interface YHChartCell()
 
@@ -21,19 +22,28 @@
 @synthesize userMessage=_userMessage;
 @synthesize userTimer=_userTimer;
 @synthesize userSource=_userSource;
+
 - (void)awakeFromNib {
     // Initialization code
     [self updateConstraints];
+    //[self setStatus:self.cellstatus];
+    //self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+}
+-(void)setStatus:(YHStatus *)status{
 
+    _userName.text=status.userNameData;
+    _userSource.text=status.userSourceData;
+    _userTimer.text=status.userCreateAtData;
+    
+    self.userImageURL=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,status.userImageData];
+    [_userImage setImageWithURL:[NSURL URLWithString:self.userImageURL]];
+    _userMessage.text=status.usertextData;
+    
 }
 
 -(void)updateConstraints{
     [super updateConstraints];
-    //[NSLayoutConstraint constraintWithItem:_userImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0 constant:8];
-    
-    //[NSLayoutConstraint constraintWithItem:_userImage attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0 constant:8];
-    
-    //[NSLayoutConstraint constraintWithItem:_userMessage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0 constant:40];
+
 }
 
 +(NSString *)identifier{

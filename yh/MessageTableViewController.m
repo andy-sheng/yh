@@ -10,24 +10,18 @@
 #import "ChatTogetherController.h"
 #import "YHChartCell.h"
 #import "YHStatus.h"
+#import "YHConfig.h"
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
-//#define identifier1 @"MyMessage"
-//#define identifier2 @"OthersMessage"
 @interface MessageTableViewController ()<UITableViewDataSource, UITableViewDelegate,SegViewProtocol>
-
 @end
 
 @implementation MessageTableViewController
-{
-    NSMutableArray *tableName;
-    NSMutableArray *tableMessage;
-    NSMutableArray *tableImage;
-    NSMutableArray *tableTimer;
-    NSMutableArray *tableSource;
-    NSMutableArray *_status;
-}
+@synthesize status=_status;
+@synthesize initdata=init_data;
 - (void) show {
-    
+
 }
 
 - (void) hide {
@@ -35,49 +29,53 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
+
     //UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"Title"];
-    
+    [super viewDidLoad];
     NSLog(@"changeButton");
-    
-    [self initData1];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"YHChartCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
+    [self initData];
     NSLog(@"REGISTERED");
-    
-        //[self.tableView registerNib:[UINib nibWithNibName:@"chartcell2" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
-    self.tableView.delegate =  self;
-    self.tableView.dataSource = self;
-    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+    self.tableView.delegate =  self;
+    self.tableView.dataSource = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"YHChartCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
+    }
 
--(void)initData1{
-    tableName=[NSMutableArray arrayWithObjects:@"张三",@"李四",nil];
-    
-    tableMessage=[NSMutableArray arrayWithObjects:@"今天天气好好好好😀",@"谢谢！！", nil];
-    
-    tableImage=[NSMutableArray arrayWithObjects:@"张三.jpg",@"李四.jpg",nil];
-    
-    tableTimer=[NSMutableArray arrayWithObjects:@"09:34",@"10:20", nil];
-    
-    tableSource=[NSMutableArray arrayWithObjects:@"奥迪",@"奇瑞QQ", nil];
-}
+-(void)initData{
+    NSString *path=[NSString stringWithFormat:@"%@%s",SERVER_ADDR,"indi_message.json"];
+    NSLog(@"%@",path);
+    //AFHTTPRequestOperationManager *operation=[AFHTTPRequestOperationManager manager];
 
--(void)initData2{
-    NSString *path=[[NSBundle mainBundle] pathForResource:@"StatusInfo" ofType:@"plist"];
-    NSArray *array=[NSArray arrayWithContentsOfFile:path];
-    _status=[[NSMutableArray alloc]init];
-    [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
-        [_status addObject:[YHStatus staticinitwithYHstatusdic:obj]];
-        
+    NSURL *url=[NSURL URLWithString:path];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        init_data=(NSDictionary*)responseObject;
+
+        _status=[[NSMutableArray alloc]init];
+        int j=(int)[init_data[@"message"] count];
+        NSLog(@"%d",j);
+        for(int i=0;i<j;i++)
+        {
+            [_status addObject:[YHStatus staticinitwithYHstatusdic:init_data[@"message"][i]]];
+        }
+        [self.tableView reloadData];
+
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        UIAlertController *alert=[UIAlertController alertControllerWithTitle:@"Error" message:@"cannot get the initial message data" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }];
+    
+    [operation start];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,22 +90,46 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tableName count];
+    int a =(int)_status.count;
+    NSLog(@"%d",a);
+    return _status.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     YHChartCell *cell = (YHChartCell *)[tableView dequeueReusableCellWithIdentifier:[YHChartCell identifier] forIndexPath:indexPath];
+    YHStatus *cells=[_status objectAtIndex:indexPath.row];
     
-    cell.userName.text=[tableName objectAtIndex:indexPath.row];
-    cell.userMessage.text=[tableMessage objectAtIndex:indexPath.row];
-    cell.userSource.text=[tableSource objectAtIndex:indexPath.row];
-    cell.userTimer.text=[tableTimer objectAtIndex:indexPath.row];
-    cell.userImage.image=[UIImage imageNamed:[tableImage objectAtIndex:indexPath.row]];
+    cell.userName.text=cells.userNameData;
+    NSLog(@"%@",cells.userNameData);
+    cell.userMessage.text=cells.usertextData;
+     NSLog(@"%@",cells.usertextData);
+    cell.userSource.text=cells.userSourceData;
+     NSLog(@"%@",cells.userSourceData);
+    cell.userTimer.text=cells.userCreateAtData;
+     NSLog(@"%@",cells.userCreateAtData);
+    cell.userImageURL=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,cells.userImageData];
+    
+    [cell.userImage setImageWithURL:[NSURL URLWithString:cell.userImageURL]];
+    /*
+    NSString *path_image=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,cells.userImageData];
+    NSURL *url=[NSURL URLWithString:path_image];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+
+    UIImage *placeholderImage=[UIImage imageNamed:@"idontknowwhy"];
+    __weak UITableViewCell *weakCell=cell;
+
+    [cell.imageView setImageWithURLRequest:request placeholderImage:placeholderImage success:
+     ^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        weakCell.imageView.image=image;
+        [weakCell setNeedsLayout];
+        [weakCell updateConstraints];
+    } failure:nil];
+     */
     //cell.textLabel.text = @"消息";
-    
+
     // Configure the cell...
-    
+
     return cell;
 }
 - (UIViewController*)loadViewControllerWithStoryBoard:(NSString*)storyBoardName Identifier:(NSString*) identifier{
@@ -131,16 +153,11 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableImage removeObjectAtIndex:indexPath.row];
-        [tableMessage removeObjectAtIndex:indexPath.row];
-        [tableName removeObjectAtIndex:indexPath.row];
-        [tableSource removeObjectAtIndex:indexPath.row];
-        [tableTimer removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source
+        [_status removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
 
 
@@ -166,9 +183,9 @@
     // Navigation logic may go here, for example:
     // Create the next view controller.
     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
+
     // Pass the selected object to the new view controller.
-    
+
     // Push the view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
