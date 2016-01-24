@@ -2,37 +2,44 @@
 //  YHTimelineViewController.m
 //  yh
 //
-//  Created by andy on 15/12/18.
-//  Copyright © 2015年 andy. All rights reserved.
+//  Created by andy on 16/1/24.
+//  Copyright © 2016年 andy. All rights reserved.
 //
 
 #import "YHTimelineViewController.h"
 
-@interface YHTimelineViewController ()
+@interface YHTimelineViewController()
 
 @end
-
 @implementation YHTimelineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.navigationItem.title = @"xx的车友圈";
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.estimatedRowHeight = 50;
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"covercell"];
+        return cell;
+    }
+    return [tableView dequeueReusableCellWithIdentifier:@"timelinecell"];
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
 
 @end

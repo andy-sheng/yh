@@ -1,5 +1,5 @@
 //
-//  YHTimelineViewController.h
+//  YHNewsLocationSelector.h
 //  yh
 //
 //  Created by andy on 16/1/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YHTimelineViewController : UITableViewController
+@interface YHNewsLocationSelector : UITableViewController
 
 @end

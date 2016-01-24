@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "YHUser.h"
-#import "YHNewsCellActionProtocol.h"
+
+@protocol YHNewsCoverCellDelegate <NSObject>
+
+@optional
+-(void)showNewCommentsBtnTouched;
+-(void)coverTouched;
+@end
+
+
 
 @interface YHNewsCoverCell : UITableViewCell
 
-@property (nonatomic, weak) id<YHNewsCellActionProtocol> delegate;
+@property (nonatomic, weak) id<YHNewsCoverCellDelegate> delegate;
 
 + (YHNewsCoverCell *)newsCoverCellWithUser:(YHUser *)user;
 + (NSString *)identifier;

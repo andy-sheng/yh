@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *avatarLeading;
 @property (strong, nonatomic) YHUser *user;
 
+@property (weak, nonatomic) IBOutlet UIButton *showNewCommentsBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *showNewCommentsBtnHeight;
+
 @end
 
 @implementation YHNewsCoverCell
@@ -30,6 +33,10 @@
     YHNewsCoverCell *cell = [[NSBundle mainBundle] loadNibNamed:@"YHNewsCoverCell" owner:nil options:nil][0];
     cell.user = user;
     return cell;
+}
+
+- (IBAction)showNewComments:(id)sender {
+    [_delegate showNewCommentsBtnTouched];
 }
 
 - (IBAction)changeCover:(id)sender {
@@ -49,15 +56,17 @@
     _name.text = _user.name;
     _slogan.text = _user.slogan;
     [_avata setBackgroundImage:[UIImage imageNamed:_user.avatar] forState:UIControlStateNormal];
+    
+
 }
 
 - (void)awakeFromNib {
     //adjust layout
-    _avatarTop.constant = _avatarTop.constant * [UIScreen mainScreen].bounds.size.width / XIB_WIDTH;
-    _avatarLeading.constant = _avatarLeading.constant * [UIScreen mainScreen].bounds.size.width / XIB_WIDTH;
+    //_avatarTop.constant = _avatarTop.constant * [UIScreen mainScreen].bounds.size.width / XIB_WIDTH;
+    //_avatarLeading.constant = _avatarLeading.constant * [UIScreen mainScreen].bounds.size.width / XIB_WIDTH;
     
     [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    NSLog(@"%@", self.reuseIdentifier);
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

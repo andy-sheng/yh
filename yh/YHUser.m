@@ -12,8 +12,8 @@
 
 + (YHUser *)user {
     YHUser *user = [[YHUser alloc] init];
-    user.name = @"name";
-    user.slogan = @"slogan";
+    user.name = @"David";
+    user.slogan = @"爱车，爱生活";
     user.cover = @"cover.png";
     user.avatar = @"avatar.png";
     return user;

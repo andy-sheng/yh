@@ -11,7 +11,7 @@
 @protocol YHNewsCommentsCellDelegate
 @required
 
-- (void)commentKeyBoardWillPop:(CGPoint) loc;
+- (void)commentKeyBoardWillPopWithLoc:(CGPoint) loc commentDic:(NSMutableDictionary*) comment;
 
 @end
 
@@ -22,6 +22,6 @@
 + (NSString *)identifier;
 - (void)initWithComments:(NSMutableArray*) comments;
 - (instancetype)initWithCommentsCount:(NSInteger) count;
-- (void)setupComments:(NSMutableArray*) comments;
+- (void)setupWithComments:(NSMutableArray*) comments;
 
 @end

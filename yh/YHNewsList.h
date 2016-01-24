@@ -17,5 +17,6 @@
 - (YHNews *) newsAtIndex:(NSInteger) index;
 - (YHNews *) newsWithNid:(NSInteger) nid;
 - (NSInteger)count;
+- (NSInteger)addCommentWithcomment:(NSDictionary*)comment newsId:(NSInteger) nid;
 
 @end

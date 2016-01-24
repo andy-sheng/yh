@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YHPublishViewController : UIViewController
+@interface YHPublishViewController : UITableViewController
 
 @end

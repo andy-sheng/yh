@@ -17,6 +17,9 @@
 @end
 @implementation YHNews
 
+- (void)addComment:(NSDictionary *)comment {
+    [self.comments addObject:comment];
+}
 + (YHNews *)news {
     return [[YHNews alloc] init];
 }

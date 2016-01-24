@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "YHNews.h"
-#import "YHNewsCellActionProtocol.h"
+
+
+@protocol YHNewsCellDelegate <NSObject>
+
+@optional
+-(void)imageTouchedWithNid:(NSInteger) nid imageId:(NSInteger)imageId;
+-(void)nameTouched;
+
+@end
 
 @interface YHNewsCell : UITableViewCell
-@property (nonatomic, weak) id<YHNewsCellActionProtocol> delegate;
+@property (nonatomic, weak) id<YHNewsCellDelegate> delegate;
 
 + (NSString *)identifier;
 - (void)initWithNews:(YHNews *)news;

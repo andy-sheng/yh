@@ -20,6 +20,17 @@
 
 @implementation YHNewsList
 
+- (NSInteger)addCommentWithcomment:(NSDictionary *)comment newsId:(NSInteger)nid {
+    for (NSInteger i = [self.list count] - 1; i >= 0; i--) {
+        YHNews *news = [self.list objectAtIndex:i];
+        if (news.nid == nid) {
+            [news addComment:comment];
+            return i;
+        }
+    }
+    return 0;
+}
+
 + (YHNewsList *) newsList {
     YHNewsList *newsList = [[YHNewsList alloc] init];
     newsList.list = [[NSMutableArray alloc] init];

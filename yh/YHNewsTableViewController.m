@@ -6,13 +6,13 @@
 //  Copyright © 2015年 andy. All rights reserved.
 //
 
+#import "YHTimelineViewController.h"
 #import "YHNewsTableViewController.h"
 #import "YHNewsCoverCell.h"
 #import "YHNewsCell.h"
 #import "YHNewsCommentsCell.h"
 #import "YHUser.h"
 #import "YHNews.h"
-#import "YHNewsCellActionProtocol.h"
 #import "YHImageDisplayerController.h"
 #import "YHConfig.h"
 #import "YHNewsList.h"
@@ -20,18 +20,20 @@
 #import "MainViewController.h"
 #import <MJRefresh.h>
 #import <AFNetworking.h>
-#import <ASKeyboard.h>
+#import "ASKeyboard.h"
 
 #define COVER_ROW 0
 
 
 
-@interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate,YHNewsCellActionProtocol, YHNewsCommentsCellDelegate>
+@interface YHNewsTableViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, UITextFieldDelegate, YHNewsCommentsCellDelegate, YHNewsCoverCellDelegate, YHNewsCellDelegate, ASKeyboardDelegate>
+@property(assign, nonatomic) NSInteger newsId;
 @property(nonatomic, strong) ASKeyboard *keyboard;
 @property(assign, nonatomic)CGPoint locInTable;
 @property(nonatomic, strong) UITextField *textfield;
 @property(nonatomic, strong) YHNewsList *newsList;
 @property(nonatomic, weak) MainViewController *mainController;
+
 @end
 
 @implementation YHNewsTableViewController
@@ -77,36 +79,16 @@
     }];
 }
 
-- (void)nameTouched {
-    [self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHTimelineViewController"] animated:YES];
-}
 
-- (void)imageTouchedWithNid:(NSInteger)nid imageId:(NSInteger)imageId {
-    
-    [self.mainController presentViewController:[YHImageDisplayerController displayerWithUrlstrs:[self.newsList newsWithNid:nid].images imageId:imageId] animated:YES completion:nil];
-    
-}
 
--(void)coverTouched {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"更换背景" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHChangeCoverController"] animated:YES];
-    }]];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }]];
-    
-    [self.mainController presentViewController:alert animated:YES completion:nil];
-    
-}
+
 
 - (void)viewDidLoad {
 
     [super viewDidLoad];
 
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -129,11 +111,61 @@
     
     // keyboard
     self.keyboard = [[ASKeyboard alloc] init];
+    self.keyboard.delegate = self;
     [self.mainController.view addSubview:self.keyboard.view];
 }
 
+#pragma mark ASKeyboardDelegate
+- (void)finishInput:(NSMutableDictionary*) data{
+    
+    [self.keyboard hide];
+    [data setObject:@"hehe" forKey:@"from"];
+    
+    NSInteger row = ([self.newsList addCommentWithcomment:data newsId:[data[@"nid"] integerValue]] + 1) * 3 - 1;
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:row inSection:0]] withRowAnimation:NO];
+    [self.keyboard.textView setText:@""];
+}
+
+#pragma mark YHNewsCoverCellDelegate
+-(void)coverTouched {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"更换背景" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHChangeCoverController"] animated:YES];
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    [self.mainController presentViewController:alert animated:YES completion:nil];
+    
+}
+
+- (void)showNewCommentsBtnTouched {
+    [self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHNewCommentsViewController"] animated:YES];
+}
+
+
+#pragma mark YHNewsCellDelegate
+- (void)nameTouched {
+    YHTimelineViewController *controller = (YHTimelineViewController*)[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHTimelineViewController"];
+    [self.mainController pushViewController:controller animated:YES];
+    //[self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHTimelineViewController"] animated:YES];
+}
+
+- (void)imageTouchedWithNid:(NSInteger)nid imageId:(NSInteger)imageId {
+    
+    [self.mainController presentViewController:[YHImageDisplayerController displayerWithUrlstrs:[self.newsList newsWithNid:nid].images imageId:imageId] animated:YES completion:nil];
+    
+}
+
+
 #pragma mark YHNewsCommentsCellDelegate
-- (void)commentKeyBoardWillPop:(CGPoint) loc{
+- (void)commentKeyBoardWillPopWithLoc:(CGPoint)loc commentDic:(NSMutableDictionary *)comment{
+    NSLog(@"comment:%@", comment);
+    [self.keyboard setupData:comment];
+    
     
     CGPoint keyboardPos = [self.keyboard showWithPluginView];
     CGFloat offsetY = loc.y - keyboardPos.y
@@ -170,6 +202,9 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 /*cell*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -190,11 +225,10 @@
         } else if(indexPath.row % 3 == 2) {
             NSString *reuseId = [NSString stringWithFormat:@"%@-%ld", [YHNewsCommentsCell identifier], [[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count]];
             YHNewsCommentsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:reuseId];
-            //[cell initWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
             if (!cell) {
                 cell = [[YHNewsCommentsCell alloc] initWithCommentsCount:[[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments count]];
             }
-            [cell setupComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
+            [cell setupWithComments:[self.newsList newsAtIndex:(indexPath.row - 2) / 3].comments];
             cell.delegate = self;
             return cell;
         } else {
@@ -210,7 +244,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == COVER_ROW) {
-        return self.tableView.bounds.size.width / 600 * 300;
+        return UITableViewAutomaticDimension;
+        //return self.tableView.bounds.size.width / 600 * 300;
     } else {
         if (indexPath.row % 3 == 1) {
             YHNewsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:[YHNewsCell identifier]];
@@ -241,65 +276,5 @@
     //NSLog(@"%f", self.tableView.contentInset.top);
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

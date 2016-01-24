@@ -1,28 +1,22 @@
 //
-//  YHPublishViewController.m
+//  YHNewCommentsViewController.m
 //  yh
 //
 //  Created by andy on 16/1/24.
 //  Copyright © 2016年 andy. All rights reserved.
 //
 
-#import "YHPublishViewController.h"
+#import "YHNewCommentsViewController.h"
 
-@interface YHPublishViewController ()
+@interface YHNewCommentsViewController ()
 
 @end
 
-@implementation YHPublishViewController
+@implementation YHNewCommentsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"发布动态";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    UIView *tmp = [[UIView alloc] init];
-    [tmp setBackgroundColor:[UIColor grayColor]];
-    [self.tableView setTableFooterView:tmp];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -42,7 +36,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 /*

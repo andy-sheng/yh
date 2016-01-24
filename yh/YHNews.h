@@ -24,5 +24,6 @@
 
 + (YHNews *)news;
 + (YHNews *)newsWithDic:(id) dic;
+- (void)addComment:(NSDictionary *)comment;
 
 @end
