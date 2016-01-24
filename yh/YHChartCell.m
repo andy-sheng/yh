@@ -8,7 +8,8 @@
 
 #import "YHChartCell.h"
 #import "YHStatus.h"
-
+#import "YHConfig.h"
+#import "AFNetWorking.h"
 #define  IDENTIFIER @"chartCell"
 @interface YHChartCell()
 
@@ -24,16 +25,31 @@
 - (void)awakeFromNib {
     // Initialization code
     [self updateConstraints];
+    //self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+}
+-(void)setStatus:(YHStatus *)status{
 
+    _userName.text=status.userNameData;
+    _userSource.text=status.userSourceData;
+    _userTimer.text=status.userCreateAtData;
+    /*
+    NSString *path=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,status.userImageData];
+    NSURL *url=[NSURL URLWithString:path];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _userImage.image=responseObject;
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"%s","Image in MessageView download error!");
+    }];
+    [operation start];
+     */
 }
 
 -(void)updateConstraints{
     [super updateConstraints];
-    //[NSLayoutConstraint constraintWithItem:_userImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0 constant:8];
-    
-    //[NSLayoutConstraint constraintWithItem:_userImage attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0 constant:8];
-    
-    //[NSLayoutConstraint constraintWithItem:_userMessage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:0 constant:40];
+
 }
 
 +(NSString *)identifier{

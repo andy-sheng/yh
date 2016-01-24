@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 750356761C1713DD00F5B8F6 /* 张三.jpg */; };
-		750356791C1713E300F5B8F6 /* 李四.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 750356781C1713E300F5B8F6 /* 李四.jpg */; };
+		7506D8BC1C53E432003569B6 /* YHChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7506D8BB1C53E432003569B6 /* YHChartCell.m */; };
+		7506D8C01C53E44F003569B6 /* YHStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7506D8BF1C53E44F003569B6 /* YHStatus.m */; };
+		7506D8C31C53E464003569B6 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7506D8C21C53E464003569B6 /* MessageTableViewController.m */; };
 		7578DF761C240041003C6983 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7578DF751C240041003C6983 /* Message.storyboard */; };
 		7578DF7F1C2409CB003C6983 /* ChatTogetherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */; };
-		758E9D9F1C16C55200C78FDF /* YHChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E9D9E1C16C55200C78FDF /* YHChartCell.m */; };
-		758E9DA21C16C57400C78FDF /* YHStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E9DA11C16C57400C78FDF /* YHStatus.m */; };
 		758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758E9DA31C16D58F00C78FDF /* YHChartCell.xib */; };
 		98DF4F70C0492E08DE13F9EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE98627A4B3D459F2EC6716 /* libPods.a */; };
 		A14E73291C1AE0CF000406D8 /* YHNewsCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = A14E73281C1AE0CF000406D8 /* YHNewsCellController.m */; };
@@ -31,7 +30,6 @@
 		A1B8E0051BDF70BE0097F732 /* yhUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E0041BDF70BE0097F732 /* yhUITests.m */; };
 		A1B8E01B1BDFD10D0097F732 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E01A1BDFD10D0097F732 /* MainViewController.m */; };
 		A1B8E0701BE21F3A0097F732 /* YHNewsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E06E1BE21F3A0097F732 /* YHNewsTableViewController.m */; };
-		A1B8E0751BE232360097F732 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E0731BE232360097F732 /* MessageTableViewController.m */; };
 		A1B8E07A1BE2324E0097F732 /* NearbyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E0781BE2324E0097F732 /* NearbyTableViewController.m */; };
 		A1B8E07F1BE232650097F732 /* ContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E07D1BE232650097F732 /* ContactTableViewController.m */; };
 		A1B8E1111BE70AC40097F732 /* YHNewsCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1B8E1101BE70AC40097F732 /* YHNewsCoverCell.xib */; };
@@ -69,15 +67,15 @@
 /* Begin PBXFileReference section */
 		2785E74F1F842FBAE34F90C5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5DE98627A4B3D459F2EC6716 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		750356761C1713DD00F5B8F6 /* 张三.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "张三.jpg"; sourceTree = "<group>"; };
-		750356781C1713E300F5B8F6 /* 李四.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "李四.jpg"; sourceTree = "<group>"; };
+		7506D8BB1C53E432003569B6 /* YHChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChartCell.m; sourceTree = "<group>"; };
+		7506D8BD1C53E43A003569B6 /* YHChartCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHChartCell.h; sourceTree = "<group>"; };
+		7506D8BE1C53E445003569B6 /* YHStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHStatus.h; sourceTree = "<group>"; };
+		7506D8BF1C53E44F003569B6 /* YHStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStatus.m; sourceTree = "<group>"; };
+		7506D8C11C53E45B003569B6 /* MessageTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
+		7506D8C21C53E464003569B6 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		7578DF751C240041003C6983 /* Message.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
 		7578DF7D1C2409CB003C6983 /* ChatTogetherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTogetherController.h; sourceTree = "<group>"; };
 		7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTogetherController.m; sourceTree = "<group>"; };
-		758E9D9D1C16C55200C78FDF /* YHChartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChartCell.h; sourceTree = "<group>"; };
-		758E9D9E1C16C55200C78FDF /* YHChartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChartCell.m; sourceTree = "<group>"; };
-		758E9DA01C16C57400C78FDF /* YHStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHStatus.h; sourceTree = "<group>"; };
-		758E9DA11C16C57400C78FDF /* YHStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHStatus.m; sourceTree = "<group>"; };
 		758E9DA31C16D58F00C78FDF /* YHChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHChartCell.xib; sourceTree = "<group>"; };
 		A12F3C3F1BF19BB800F92EE2 /* YHNewsCellActionProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHNewsCellActionProtocol.h; sourceTree = "<group>"; };
 		A14E73271C1AE0CF000406D8 /* YHNewsCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewsCellController.h; sourceTree = "<group>"; };
@@ -112,8 +110,6 @@
 		A1B8E01A1BDFD10D0097F732 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A1B8E06D1BE21F3A0097F732 /* YHNewsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewsTableViewController.h; sourceTree = "<group>"; };
 		A1B8E06E1BE21F3A0097F732 /* YHNewsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewsTableViewController.m; sourceTree = "<group>"; };
-		A1B8E0721BE232360097F732 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = "<group>"; };
-		A1B8E0731BE232360097F732 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = "<group>"; };
 		A1B8E0771BE2324E0097F732 /* NearbyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyTableViewController.h; sourceTree = "<group>"; };
 		A1B8E0781BE2324E0097F732 /* NearbyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyTableViewController.m; sourceTree = "<group>"; };
 		A1B8E07C1BE232650097F732 /* ContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewController.h; sourceTree = "<group>"; };
@@ -169,20 +165,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		750356751C1713BB00F5B8F6 /* image */ = {
-			isa = PBXGroup;
-			children = (
-				750356781C1713E300F5B8F6 /* 李四.jpg */,
-				750356761C1713DD00F5B8F6 /* 张三.jpg */,
-			);
-			name = image;
-			sourceTree = "<group>";
-		};
 		7578DF771C2400B9003C6983 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				A1B8E0731BE232360097F732 /* MessageTableViewController.m */,
-				A1B8E0721BE232360097F732 /* MessageTableViewController.h */,
+				7506D8C21C53E464003569B6 /* MessageTableViewController.m */,
+				7506D8C11C53E45B003569B6 /* MessageTableViewController.h */,
 				7578DF7D1C2409CB003C6983 /* ChatTogetherController.h */,
 				7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */,
 			);
@@ -192,8 +179,8 @@
 		7578DF781C2400C9003C6983 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				758E9DA01C16C57400C78FDF /* YHStatus.h */,
-				758E9DA11C16C57400C78FDF /* YHStatus.m */,
+				7506D8BF1C53E44F003569B6 /* YHStatus.m */,
+				7506D8BE1C53E445003569B6 /* YHStatus.h */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -202,8 +189,8 @@
 			isa = PBXGroup;
 			children = (
 				758E9DA31C16D58F00C78FDF /* YHChartCell.xib */,
-				758E9D9E1C16C55200C78FDF /* YHChartCell.m */,
-				758E9D9D1C16C55200C78FDF /* YHChartCell.h */,
+				7506D8BD1C53E43A003569B6 /* YHChartCell.h */,
+				7506D8BB1C53E432003569B6 /* YHChartCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -368,7 +355,6 @@
 				7578DF791C2400D2003C6983 /* cell */,
 				7578DF781C2400C9003C6983 /* model */,
 				7578DF771C2400B9003C6983 /* controller */,
-				750356751C1713BB00F5B8F6 /* image */,
 				7578DF751C240041003C6983 /* Message.storyboard */,
 			);
 			name = "消息";
@@ -445,6 +431,7 @@
 				A1B8DFD91BDF70BD0097F732 /* Frameworks */,
 				A1B8DFDA1BDF70BD0097F732 /* Resources */,
 				C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */,
+				520889491E61309BA4A6AC2F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -541,7 +528,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				750356791C1713E300F5B8F6 /* 李四.jpg in Resources */,
 				A1B8E11D1BE72A760097F732 /* avatar.png in Resources */,
 				A1B8DFEF1BDF70BE0097F732 /* LaunchScreen.storyboard in Resources */,
 				A1B8E1111BE70AC40097F732 /* YHNewsCoverCell.xib in Resources */,
@@ -551,7 +537,6 @@
 				7578DF761C240041003C6983 /* Message.storyboard in Resources */,
 				A1B8E11F1BE89DA30097F732 /* YHNewsCell.xib in Resources */,
 				A1B8DFEC1BDF70BE0097F732 /* Assets.xcassets in Resources */,
-				750356771C1713DD00F5B8F6 /* 张三.jpg in Resources */,
 				A1B8E11B1BE726CE0097F732 /* cover.png in Resources */,
 				A1CE29961C23A85700B10198 /* News.storyboard in Resources */,
 				A1B8DFEA1BDF70BE0097F732 /* Main.storyboard in Resources */,
@@ -576,6 +561,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		520889491E61309BA4A6AC2F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6E92755EAA703ACC8D631D99 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -614,20 +614,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CE299C1C23B18F00B10198 /* YHTimelineViewController.m in Sources */,
+				7506D8C31C53E464003569B6 /* MessageTableViewController.m in Sources */,
 				A1B8E0701BE21F3A0097F732 /* YHNewsTableViewController.m in Sources */,
-				758E9D9F1C16C55200C78FDF /* YHChartCell.m in Sources */,
 				A1B8E1141BE70C9E0097F732 /* YHNewsCoverCell.m in Sources */,
 				A1B8E07F1BE232650097F732 /* ContactTableViewController.m in Sources */,
 				A170DF8B1C1C187B00F29480 /* YHNewsCommentsCell.m in Sources */,
-				A1B8E0751BE232360097F732 /* MessageTableViewController.m in Sources */,
 				A1E8B0691BF33601007E1119 /* YHChangeCoverController.m in Sources */,
+				7506D8C01C53E44F003569B6 /* YHStatus.m in Sources */,
 				A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */,
 				A1CE29991C23A91900B10198 /* YHPublishViewController.m in Sources */,
 				A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */,
 				A1B8E01B1BDFD10D0097F732 /* MainViewController.m in Sources */,
 				A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */,
+				7506D8BC1C53E432003569B6 /* YHChartCell.m in Sources */,
 				7578DF7F1C2409CB003C6983 /* ChatTogetherController.m in Sources */,
-				758E9DA21C16C57400C78FDF /* YHStatus.m in Sources */,
 				A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */,
 				A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */,
 				A1B8E07A1BE2324E0097F732 /* NearbyTableViewController.m in Sources */,

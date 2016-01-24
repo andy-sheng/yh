@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SegViewProtocol.h"
 @interface MessageTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,SegViewProtocol>
+@property(nonatomic,copy)NSMutableArray*status;
+@property(nonatomic,copy)NSDictionary* initdata;
 @end

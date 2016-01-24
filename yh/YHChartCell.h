@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class YHStatus;
 @interface YHChartCell : UITableViewCell
-@property(copy,nonatomic)YHStatus *cell;
+@property(copy,nonatomic)YHStatus *cellstatus;
 @property(assign,nonatomic)CGFloat height;
 @property (weak,nonatomic) IBOutlet UIImageView* userImage;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
