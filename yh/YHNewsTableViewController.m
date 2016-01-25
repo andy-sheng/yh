@@ -148,8 +148,11 @@
 
 
 #pragma mark YHNewsCellDelegate
-- (void)nameTouched {
+- (void)nameTouched:(NSString *) userId {
+    NSLog(@"%@", userId);
     YHTimelineViewController *controller = (YHTimelineViewController*)[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHTimelineViewController"];
+    
+    [controller initWithUserId:userId];
     [self.mainController pushViewController:controller animated:YES];
     //[self.mainController pushViewController:[self loadViewControllerWithStoryBoard:@"News" Identifier:@"YHTimelineViewController"] animated:YES];
 }

@@ -13,6 +13,7 @@
 @property (nonatomic, assign) NSInteger nid;
 @property (nonatomic, strong) NSString *avatar;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong) NSString *car;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *location;

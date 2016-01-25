@@ -10,4 +10,6 @@
 
 @interface YHTimelineViewController : UITableViewController
 
+- (void)initWithUserId:(NSString *) userId;
+
 @end

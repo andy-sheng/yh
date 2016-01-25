@@ -14,7 +14,7 @@
 
 @optional
 -(void)imageTouchedWithNid:(NSInteger) nid imageId:(NSInteger)imageId;
--(void)nameTouched;
+-(void)nameTouched:(NSString *) userId;
 
 @end
 

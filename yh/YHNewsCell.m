@@ -15,6 +15,7 @@
 @interface YHNewsCell () <TTTAttributedLabelDelegate>
 
 @property (weak, nonatomic) YHNews *news;
+@property (weak, nonatomic) NSString *userId;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -56,7 +57,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat       = @"HH:mm";
     
-    
+    self.userId             = self.news.userId;
     self.name.text          = self.news.name;
     self.car.text           = self.news.car;
     self.time.text          = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:self.news.time]];
@@ -75,7 +76,7 @@
 }
 
 - (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
-    [_delegate nameTouched];
+    [_delegate nameTouched:self.userId];
 }
 
 - (void) initImages {
@@ -208,7 +209,7 @@
 
 
 -(void) nameTouched:(UITapGestureRecognizer*)gestureRecgnizer {
-    [_delegate nameTouched];
+    [_delegate nameTouched:self.userId];
 }
 
 - (NSInteger) getHeight {

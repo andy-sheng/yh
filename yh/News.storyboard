@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="covercell" rowHeight="250" id="gFU-Hw-9T2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="covercell" rowHeight="250" id="gFU-Hw-9T2" customClass="YHTimelineCoverCell">
                                 <rect key="frame" x="0.0" y="28" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFU-Hw-9T2" id="nDD-I0-x5P">
@@ -29,7 +29,7 @@
                                                 <constraint firstAttribute="width" secondItem="T4F-Vh-4MP" secondAttribute="height" multiplier="3:1" id="lgo-QC-BUy"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-J9-gN5">
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="WZU-J9-gN5">
                                             <rect key="frame" x="28" y="152" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="80" id="rYJ-sV-iCF"/>
@@ -82,8 +82,15 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImg" destination="WZU-J9-gN5" id="xP1-fp-sNh"/>
+                                    <outlet property="coverImg" destination="T4F-Vh-4MP" id="bhM-bC-nlF"/>
+                                    <outlet property="nameLabel" destination="VpV-Tl-2Dh" id="AbR-ip-Z6f"/>
+                                    <outlet property="newsCount" destination="Mqb-d4-2ou" id="DiC-pb-1Nd"/>
+                                    <outlet property="sloganLabel" destination="YB2-yf-fle" id="brp-TZ-0Eb"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="timelinecell" rowHeight="86" id="4CG-ci-7hE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="timelinecell" rowHeight="86" id="4CG-ci-7hE" customClass="YHTimelineCell">
                                 <rect key="frame" x="0.0" y="278" width="600" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4CG-ci-7hE" id="cIJ-yW-hXh">
@@ -137,6 +144,10 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentLabel" destination="FdC-vK-bl2" id="LMS-Pe-4vC"/>
+                                    <outlet property="timeLabel" destination="Nfp-wZ-jwT" id="bBF-O8-Jna"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

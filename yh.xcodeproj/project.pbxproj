@@ -18,7 +18,6 @@
 		A11618AF1C54A4A400A65C3E /* YHPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11618AE1C54A4A400A65C3E /* YHPublishViewController.m */; };
 		A146705A1C54AB7E00B268E4 /* YHNewsLocationSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A14670591C54AB7E00B268E4 /* YHNewsLocationSelector.m */; };
 		A146705D1C54C95700B268E4 /* YHTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A146705C1C54C95700B268E4 /* YHTimelineViewController.m */; };
-		A14670631C54FFE600B268E4 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = A14670621C54FFE600B268E4 /* dot.png */; };
 		A14E73291C1AE0CF000406D8 /* YHNewsCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = A14E73281C1AE0CF000406D8 /* YHNewsCellController.m */; };
 		A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15B87E81BF1B41000554F8D /* YHImageDisplayerController.m */; };
 		A170DF8B1C1C187B00F29480 /* YHNewsCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A170DF8A1C1C187B00F29480 /* YHNewsCommentsCell.m */; };
@@ -48,6 +47,8 @@
 		A1B8E12A1BE8B0BC0097F732 /* avatar_for_news.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B8E1291BE8B0BC0097F732 /* avatar_for_news.png */; };
 		A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B8E12C1BE8B15B0097F732 /* YHNews.m */; };
 		A1CE29961C23A85700B10198 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1CE29951C23A85700B10198 /* News.storyboard */; };
+		A1DCACB01C55B93C00111CAF /* YHTimelineCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DCACAF1C55B93C00111CAF /* YHTimelineCoverCell.m */; };
+		A1DCACB31C55CD5300111CAF /* YHTimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1DCACB21C55CD5300111CAF /* YHTimelineCell.m */; };
 		A1E8B0691BF33601007E1119 /* YHChangeCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */; };
 /* End PBXBuildFile section */
 
@@ -144,6 +145,10 @@
 		A1B8E12C1BE8B15B0097F732 /* YHNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNews.m; sourceTree = "<group>"; };
 		A1CE29951C23A85700B10198 /* News.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		A1CE29971C23A91900B10198 /* YHPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPublishViewController.h; sourceTree = "<group>"; };
+		A1DCACAE1C55B93C00111CAF /* YHTimelineCoverCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTimelineCoverCell.h; sourceTree = "<group>"; };
+		A1DCACAF1C55B93C00111CAF /* YHTimelineCoverCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTimelineCoverCell.m; sourceTree = "<group>"; };
+		A1DCACB11C55CD5300111CAF /* YHTimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHTimelineCell.h; sourceTree = "<group>"; };
+		A1DCACB21C55CD5300111CAF /* YHTimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHTimelineCell.m; sourceTree = "<group>"; };
 		A1E8B0671BF33601007E1119 /* YHChangeCoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHChangeCoverController.h; sourceTree = "<group>"; };
 		A1E8B0681BF33601007E1119 /* YHChangeCoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHChangeCoverController.m; sourceTree = "<group>"; };
 		B1BE15B25FCA9A804A8CB519 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +233,10 @@
 				A170DF8A1C1C187B00F29480 /* YHNewsCommentsCell.m */,
 				A1830F761C1FF7610023A6A6 /* YHNewsSparatorCell.h */,
 				A1830F771C1FF7610023A6A6 /* YHNewsSparatorCell.m */,
+				A1DCACAE1C55B93C00111CAF /* YHTimelineCoverCell.h */,
+				A1DCACAF1C55B93C00111CAF /* YHTimelineCoverCell.m */,
+				A1DCACB11C55CD5300111CAF /* YHTimelineCell.h */,
+				A1DCACB21C55CD5300111CAF /* YHTimelineCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -455,7 +464,6 @@
 				A1B8DFD91BDF70BD0097F732 /* Frameworks */,
 				A1B8DFDA1BDF70BD0097F732 /* Resources */,
 				C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */,
-				520889491E61309BA4A6AC2F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -585,21 +593,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		520889491E61309BA4A6AC2F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6E92755EAA703ACC8D631D99 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -638,16 +631,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1AC598B1C2FE1C70073385E /* ASKeyboard.m in Sources */,
-				A1CE299C1C23B18F00B10198 /* YHTimelineViewController.m in Sources */,
 				7506D8C31C53E464003569B6 /* MessageTableViewController.m in Sources */,
 				A1B8E0701BE21F3A0097F732 /* YHNewsTableViewController.m in Sources */,
 				A1B8E1141BE70C9E0097F732 /* YHNewsCoverCell.m in Sources */,
 				A1B8E07F1BE232650097F732 /* ContactTableViewController.m in Sources */,
 				A170DF8B1C1C187B00F29480 /* YHNewsCommentsCell.m in Sources */,
-				A1B8E0751BE232360097F732 /* MessageTableViewController.m in Sources */,
 				A11618AD1C54A11800A65C3E /* YHNewCommentsViewController.m in Sources */,
 				A1E8B0691BF33601007E1119 /* YHChangeCoverController.m in Sources */,
 				7506D8C01C53E44F003569B6 /* YHStatus.m in Sources */,
+				A1DCACB31C55CD5300111CAF /* YHTimelineCell.m in Sources */,
 				A15B87E91BF1B41000554F8D /* YHImageDisplayerController.m in Sources */,
 				A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */,
 				A146705D1C54C95700B268E4 /* YHTimelineViewController.m in Sources */,
@@ -656,6 +648,7 @@
 				A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */,
 				7506D8BC1C53E432003569B6 /* YHChartCell.m in Sources */,
 				7578DF7F1C2409CB003C6983 /* ChatTogetherController.m in Sources */,
+				A1DCACB01C55B93C00111CAF /* YHTimelineCoverCell.m in Sources */,
 				A1A383291BFD9FBC00C564B9 /* YHNewsList.m in Sources */,
 				A1B8E12D1BE8B15B0097F732 /* YHNews.m in Sources */,
 				A1B8E07A1BE2324E0097F732 /* NearbyTableViewController.m in Sources */,

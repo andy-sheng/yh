@@ -29,6 +29,7 @@
     news.nid           = [(NSNumber *)[dic valueForKey:@"nid"] integerValue];
     news.avatar        = [NSString stringWithFormat:@"%@%@", SERVER_ADDR, [dic valueForKey:@"avatar"]];
     news.name          = [dic valueForKey:@"name"];
+    news.userId        = [dic valueForKey:@"uid"];
     news.car           = [dic valueForKey:@"car"];
     news.content       = [dic valueForKey:@"content"];
     news.location      = [dic valueForKey:@"location"];
