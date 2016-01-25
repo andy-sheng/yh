@@ -110,7 +110,13 @@
     self.newsList = [YHNewsList newsList];
     
     // keyboard
-    self.keyboard = [[ASKeyboard alloc] init];
+    //self.keyboard = [[ASKeyboard alloc] init];
+    self.keyboard = [[ASKeyboard alloc] initWithConfig:@{@"leftButtons":@[@{@"type":@"image",
+                                                                            @"src":@"happy.png",
+                                                                            @"action":@"normal" }],
+                                                         @"rightButtons":@[@{@"type":@"text",
+                                                                             @"content":@"发送",
+                                                                             @"action":@"submit"}]}];
     self.keyboard.delegate = self;
     [self.mainController.view addSubview:self.keyboard.view];
 }

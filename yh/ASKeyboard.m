@@ -27,6 +27,12 @@
 
 @implementation ASKeyboard
 
+- (ASKeyboard *)initWithConfig:(NSDictionary *)config {
+    self.leftButtonsConfig = config[@"leftButtons"];
+    self.rightButtonsConfig = config[@"rightButtons"];
+    return self;
+}
+
 - (void)setupData:(NSMutableDictionary *)data {
     self.data = data;
 }
@@ -85,7 +91,7 @@
         if ([[config valueForKey:@"type"]  isEqual: @"text"]) {
             [button setTitle:[config valueForKey:@"content"] forState:UIControlStateNormal];
         } else {
-            [button setTitle:@"图" forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:config[@"src"]] forState:UIControlStateNormal];
         }
         [self.inputView addSubview:button];
     }
@@ -99,9 +105,7 @@
 - (void)viewDidLoad {
     NSLog(@"load");
     [super viewDidLoad];
-    
-    self.leftButtonsConfig = @[@{@"type":@"image", @"action":@"normal", @"content":@"发送"}];
-    self.rightButtonsConfig = @[@{@"type":@"text", @"action":@"submit", @"content":@"发送"}];
+
     
     // init inputview
     self.inputView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, KEYBOARD_INPUT_HEIGHT)];

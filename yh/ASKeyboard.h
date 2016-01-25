@@ -24,6 +24,7 @@
 - (void)hide;
 - (CGPoint)showWithPluginView;
 - (void) setupData:(NSMutableDictionary*) data;
+- (ASKeyboard *)initWithConfig:(NSDictionary *)config;
 
 @end
 
