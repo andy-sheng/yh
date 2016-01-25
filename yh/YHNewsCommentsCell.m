@@ -13,7 +13,20 @@
 
 #define IDENTIFIER @"commentsCell"
 
+@interface YHCommentLabel:UILabel
 
+- (void)drawTextInRect:(CGRect)rect;
+
+@end
+
+@implementation YHCommentLabel
+
+- (void)drawTextInRect:(CGRect)rect {
+    UIEdgeInsets insets = {0, 10, 0, 10};
+    [super drawTextInRect:UIEdgeInsetsInsetRect(rect, insets)];
+}
+
+@end
 
 @interface YHNewsCommentsCell()
 
@@ -47,7 +60,8 @@
     }
     for (NSInteger i = 0 ; i < count; i++) {
         // init comment label
-        UILabel *commentLabel = [[UILabel alloc] init];
+        YHCommentLabel *commentLabel = [[YHCommentLabel alloc] init];
+       // commentLabel
         commentLabel.text                    = @"评论";
         commentLabel.userInteractionEnabled  = YES;
         commentLabel.numberOfLines           = 0;
