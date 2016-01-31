@@ -13,6 +13,7 @@
 #import "YHConfig.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "GoChatTableViewController.h"
 
 @interface MessageTableViewController ()<UITableViewDataSource, UITableViewDelegate,SegViewProtocol>
 @end
@@ -33,9 +34,10 @@
     //UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"Title"];
     [super viewDidLoad];
     NSLog(@"changeButton");
+    
     [self initData];
     NSLog(@"REGISTERED");
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 
@@ -44,6 +46,7 @@
     self.tableView.delegate =  self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"YHChartCell" bundle:[NSBundle mainBundle]]forCellReuseIdentifier:[YHChartCell identifier]];
+        
     }
 
 -(void)initData{
@@ -101,31 +104,17 @@
     YHStatus *cells=[_status objectAtIndex:indexPath.row];
     
     cell.userName.text=cells.userNameData;
-    NSLog(@"%@",cells.userNameData);
+    //NSLog(@"%@",cells.userNameData);
     cell.userMessage.text=cells.usertextData;
-     NSLog(@"%@",cells.usertextData);
+     //NSLog(@"%@",cells.usertextData);
     cell.userSource.text=cells.userSourceData;
-     NSLog(@"%@",cells.userSourceData);
+     //NSLog(@"%@",cells.userSourceData);
     cell.userTimer.text=cells.userCreateAtData;
-     NSLog(@"%@",cells.userCreateAtData);
+     //NSLog(@"%@",cells.userCreateAtData);
     cell.userImageURL=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,cells.userImageData];
     
     [cell.userImage setImageWithURL:[NSURL URLWithString:cell.userImageURL]];
-    /*
-    NSString *path_image=[NSString stringWithFormat:@"%@%@",SERVER_ADDR,cells.userImageData];
-    NSURL *url=[NSURL URLWithString:path_image];
-    NSURLRequest *request=[NSURLRequest requestWithURL:url];
-
-    UIImage *placeholderImage=[UIImage imageNamed:@"idontknowwhy"];
-    __weak UITableViewCell *weakCell=cell;
-
-    [cell.imageView setImageWithURLRequest:request placeholderImage:placeholderImage success:
-     ^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-        weakCell.imageView.image=image;
-        [weakCell setNeedsLayout];
-        [weakCell updateConstraints];
-    } failure:nil];
-     */
+    
     //cell.textLabel.text = @"消息";
 
     // Configure the cell...
@@ -175,30 +164,43 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self performSegueWithIdentifier:@"doChat" sender:self];
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-
-    // Pass the selected object to the new view controller.
-
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    // Push the view controller.self.navigationController is nil
+    
 }
-*/
 
-/*
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([[segue identifier]isEqualToString:@"doChat"]){
+        //GoChatTableViewController *chatController=segue.destinationViewController;
+        
+        NSIndexPath * indexPath=self.tableView.indexPathForSelectedRow;
+        YHChartCell *tempCell=[self.tableView cellForRowAtIndexPath:indexPath];
+        NSString *temptitle=tempCell.userName.text;
+        UINavigationController *navigationController=segue.destinationViewController;
+        GoChatTableViewController *chatController=[navigationController topViewController];
+        chatController.data=temptitle;
+        //navigationController.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:temptitle style:UIBarButtonItemStyleDone target:nil action:nil];
+       
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
+
 
 @end

@@ -114,8 +114,7 @@
     [self.currentTable.tableView removeFromSuperview];
     switch (sender.selectedSegmentIndex) {
         case 1:
-            self.messageTableViewController = self.messageTableViewController ? self.messageTableViewController
-                :[[MessageTableViewController alloc] init];
+            self.messageTableViewController = [[UIStoryboard storyboardWithName:@"Message" bundle:nil] instantiateViewControllerWithIdentifier:@"goChat"];
             self.currentTable = self.messageTableViewController;
             self.barBtn.title = @"发起群聊";
             break;

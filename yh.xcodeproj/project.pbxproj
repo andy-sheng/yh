@@ -13,6 +13,11 @@
 		7578DF761C240041003C6983 /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7578DF751C240041003C6983 /* Message.storyboard */; };
 		7578DF7F1C2409CB003C6983 /* ChatTogetherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */; };
 		758E9DA41C16D58F00C78FDF /* YHChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758E9DA31C16D58F00C78FDF /* YHChartCell.xib */; };
+		7595D12F1C5E16960051C3E5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7595D12E1C5E16960051C3E5 /* ChatViewController.m */; };
+		7595D13F1C5E428F0051C3E5 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7595D13E1C5E428F0051C3E5 /* arrow.png */; };
+		7598F51F1C571A7B0034C958 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7598F51E1C571A7B0034C958 /* Reveal.framework */; };
+		7598F5211C571C6A0034C958 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7598F5201C571C6A0034C958 /* libz.tbd */; };
+		7598F5241C573F230034C958 /* GoChatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7598F5231C573F230034C958 /* GoChatTableViewController.m */; };
 		98DF4F70C0492E08DE13F9EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE98627A4B3D459F2EC6716 /* libPods.a */; };
 		A11618AD1C54A11800A65C3E /* YHNewCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11618AC1C54A11800A65C3E /* YHNewCommentsViewController.m */; };
 		A11618AF1C54A4A400A65C3E /* YHPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A11618AE1C54A4A400A65C3E /* YHPublishViewController.m */; };
@@ -84,6 +89,13 @@
 		7578DF7D1C2409CB003C6983 /* ChatTogetherController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatTogetherController.h; sourceTree = "<group>"; };
 		7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatTogetherController.m; sourceTree = "<group>"; };
 		758E9DA31C16D58F00C78FDF /* YHChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YHChartCell.xib; sourceTree = "<group>"; };
+		7595D12D1C5E16960051C3E5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		7595D12E1C5E16960051C3E5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		7595D13E1C5E428F0051C3E5 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		7598F51E1C571A7B0034C958 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = ../Reveal.framework; sourceTree = "<group>"; };
+		7598F5201C571C6A0034C958 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7598F5221C573F230034C958 /* GoChatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoChatTableViewController.h; sourceTree = "<group>"; };
+		7598F5231C573F230034C958 /* GoChatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoChatTableViewController.m; sourceTree = "<group>"; };
 		A11618AB1C54A11800A65C3E /* YHNewCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHNewCommentsViewController.h; sourceTree = "<group>"; };
 		A11618AC1C54A11800A65C3E /* YHNewCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHNewCommentsViewController.m; sourceTree = "<group>"; };
 		A11618AE1C54A4A400A65C3E /* YHPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPublishViewController.m; sourceTree = "<group>"; };
@@ -162,7 +174,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7598F5211C571C6A0034C958 /* libz.tbd in Frameworks */,
 				98DF4F70C0492E08DE13F9EE /* libPods.a in Frameworks */,
+				7598F51F1C571A7B0034C958 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +204,10 @@
 				7506D8C11C53E45B003569B6 /* MessageTableViewController.h */,
 				7578DF7D1C2409CB003C6983 /* ChatTogetherController.h */,
 				7578DF7E1C2409CB003C6983 /* ChatTogetherController.m */,
+				7598F5221C573F230034C958 /* GoChatTableViewController.h */,
+				7598F5231C573F230034C958 /* GoChatTableViewController.m */,
+				7595D12D1C5E16960051C3E5 /* ChatViewController.h */,
+				7595D12E1C5E16960051C3E5 /* ChatViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -299,6 +317,7 @@
 		A1B8DFDE1BDF70BE0097F732 /* yh */ = {
 			isa = PBXGroup;
 			children = (
+				7598F51E1C571A7B0034C958 /* Reveal.framework */,
 				A1B8E0121BDF7BA30097F732 /* 车友圈 */,
 				A1B8DFE21BDF70BE0097F732 /* AppDelegate.h */,
 				A1B8DFE31BDF70BE0097F732 /* AppDelegate.m */,
@@ -410,6 +429,7 @@
 		A1B8E1191BE726C10097F732 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7595D13E1C5E428F0051C3E5 /* arrow.png */,
 				A1DCACBA1C566A4400111CAF /* happy.png */,
 				A1DCACB41C565D8F00111CAF /* dot.png */,
 				A170DF8E1C1C24FE00F29480 /* avatar_for_news.png */,
@@ -442,6 +462,7 @@
 		D0052EB2870D6D6A968AF4A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7598F5201C571C6A0034C958 /* libz.tbd */,
 				5DE98627A4B3D459F2EC6716 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -468,6 +489,7 @@
 				A1B8DFD91BDF70BD0097F732 /* Frameworks */,
 				A1B8DFDA1BDF70BD0097F732 /* Resources */,
 				C6A0BB1826CF31BA8D63A127 /* Copy Pods Resources */,
+				DB1DAD3395A9ABDAD59FC75A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -525,7 +547,7 @@
 				TargetAttributes = {
 					A1B8DFDB1BDF70BD0097F732 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 9E9C2ZNYDA;
+						DevelopmentTeam = QMRGKUWNTX;
 					};
 					A1B8DFF41BDF70BE0097F732 = {
 						CreatedOnToolsVersion = 7.1;
@@ -573,6 +595,7 @@
 				A170DF911C1C255B00F29480 /* tra.png in Resources */,
 				7578DF761C240041003C6983 /* Message.storyboard in Resources */,
 				A1DCACBB1C566A4400111CAF /* happy.png in Resources */,
+				7595D13F1C5E428F0051C3E5 /* arrow.png in Resources */,
 				A1B8E11F1BE89DA30097F732 /* YHNewsCell.xib in Resources */,
 				A1B8DFEC1BDF70BE0097F732 /* Assets.xcassets in Resources */,
 				A1B8E11B1BE726CE0097F732 /* cover.png in Resources */,
@@ -629,6 +652,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB1DAD3395A9ABDAD59FC75A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -639,6 +677,7 @@
 				A1AC598B1C2FE1C70073385E /* ASKeyboard.m in Sources */,
 				7506D8C31C53E464003569B6 /* MessageTableViewController.m in Sources */,
 				A1B8E0701BE21F3A0097F732 /* YHNewsTableViewController.m in Sources */,
+				7598F5241C573F230034C958 /* GoChatTableViewController.m in Sources */,
 				A1B8E1141BE70C9E0097F732 /* YHNewsCoverCell.m in Sources */,
 				A1B8E07F1BE232650097F732 /* ContactTableViewController.m in Sources */,
 				A170DF8B1C1C187B00F29480 /* YHNewsCommentsCell.m in Sources */,
@@ -650,6 +689,7 @@
 				A1B8DFE41BDF70BE0097F732 /* AppDelegate.m in Sources */,
 				A146705D1C54C95700B268E4 /* YHTimelineViewController.m in Sources */,
 				A146705A1C54AB7E00B268E4 /* YHNewsLocationSelector.m in Sources */,
+				7595D12F1C5E16960051C3E5 /* ChatViewController.m in Sources */,
 				A1B8E01B1BDFD10D0097F732 /* MainViewController.m in Sources */,
 				A1B8E1281BE8AA340097F732 /* YHNewsCell.m in Sources */,
 				7506D8BC1C53E432003569B6 /* YHChartCell.m in Sources */,
@@ -756,6 +796,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = (
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -804,10 +849,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = yh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bupt1;
+				PRODUCT_BUNDLE_IDENTIFIER = bupt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -820,10 +869,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = yh/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bupt1;
+				PRODUCT_BUNDLE_IDENTIFIER = bupt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

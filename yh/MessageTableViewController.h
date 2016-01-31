@@ -11,4 +11,5 @@
 @interface MessageTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource,SegViewProtocol>
 @property(nonatomic,copy)NSMutableArray*status;
 @property(nonatomic,copy)NSDictionary* initdata;
+
 @end
